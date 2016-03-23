@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokeSharp", "PokeSharp\PokeSharp.csproj", "{47932170-A76C-465C-88C0-269B4C62AB1E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathExtra", "MathExtra\MathExtra.csproj", "{80B38601-2D29-4083-9998-D27A756635D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utility", "Utility\Utility.csproj", "{DEC822F1-49FC-43C0-A400-82F98D7FF6E7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{47932170-A76C-465C-88C0-269B4C62AB1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47932170-A76C-465C-88C0-269B4C62AB1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47932170-A76C-465C-88C0-269B4C62AB1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47932170-A76C-465C-88C0-269B4C62AB1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80B38601-2D29-4083-9998-D27A756635D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80B38601-2D29-4083-9998-D27A756635D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80B38601-2D29-4083-9998-D27A756635D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80B38601-2D29-4083-9998-D27A756635D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DEC822F1-49FC-43C0-A400-82F98D7FF6E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEC822F1-49FC-43C0-A400-82F98D7FF6E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEC822F1-49FC-43C0-A400-82F98D7FF6E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEC822F1-49FC-43C0-A400-82F98D7FF6E7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
