@@ -13,8 +13,6 @@ namespace PokeSharp
         [STAThread]
         public static void Main()
         {
-            Console.WriteLine(Fraction.GreatestCommonDivider(new Fraction(5, 10)));
-            Console.ReadKey();
 
             #region OpenTK
             /*

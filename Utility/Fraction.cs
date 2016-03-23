@@ -21,8 +21,9 @@ namespace Utility
 
         public Fraction(int num = 1, int denum = 1)
         {
-            Numerator = num;
-            Denominator = denum;
+            Numerator = (uint)num;
+            Denominator = (uint)denum;
+            IsNegative = false;
         }
 
         public override string ToString()
