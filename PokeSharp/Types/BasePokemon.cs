@@ -6,13 +6,24 @@ using System.Threading.Tasks;
 
 namespace PokeSharp.Types
 {
+    /// <summary>
+    /// A data type for the base data of a pokemon.
+    /// </summary>
     public class BasePokemon
     {
-        public int HP { get; set; }
-        public int Attack { get; set; }
-        public int Defends { get; set; }
-        public int SpecialAttack { get; set; }
-        public int SpecialDefends { get; set; }
-        public int Speed { get; set; }
+        /// <summary>
+        /// The pokemons name.
+        /// </summary>
+        public string Name { get; set; }
+
+        /// <summary>
+        /// The base stats of the pokemon.
+        /// </summary>
+        public int[] BaseStats { get; set; }
+
+        /// <summary>
+        /// The pokemons evolutions.
+        /// </summary>
+        public Evolution[] Evolutions { get; set; }
     }
 }
