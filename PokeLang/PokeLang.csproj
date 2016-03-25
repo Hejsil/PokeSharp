@@ -4,17 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{47932170-A76C-465C-88C0-269B4C62AB1E}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{6E3C8968-BCC1-4638-9287-83906B379DD9}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PokeSharp</RootNamespace>
-    <AssemblyName>PokeSharp</AssemblyName>
+    <RootNamespace>PokeLang</RootNamespace>
+    <AssemblyName>PokeLang</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -35,7 +32,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,27 +40,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PokeDex\BasePokemon.cs" />
-    <Compile Include="PokeDex\Evolution.cs" />
-    <Compile Include="PokeDex\Move\LearnMove.cs" />
-    <Compile Include="PokeDex\Move\Move.cs" />
-    <Compile Include="PokeDex\Nature.cs" />
-    <Compile Include="PokeDex\Pokemon.cs" />
-    <Compile Include="PokeDex\PokemonType.cs" />
-    <Compile Include="PokeDex\Requirements\IRequirement.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <Content Include="Grammar.txt" />
+    <Content Include="TokenSpec.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Utility\Utility.csproj">
-      <Project>{dec822f1-49fc-43c0-a400-82f98d7ff6e7}</Project>
-      <Name>Utility</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

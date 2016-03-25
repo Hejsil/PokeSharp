@@ -1,0 +1,29 @@
+﻿<Script>		-> <Functions> $
+<Functions>		-> <Function> <Functions>
+				|  EPSILON
+<Function>		-> id ( <Params> ) <Body>
+				|  id <Body>
+<Params>		-> <Params_NE>
+				|  EPSILON
+<Params_NE>		-> id comma <Params_NE>
+				|  id
+<Body>			-> { <Statements> }
+<Statements>	-> <Statement> <Statements>
+				|  EPSILON
+<Statement>     -> <Id> = <Expr1> ;
+<Expr1>			-> <Expr1> + <Expr2>
+				|  <Expr1> - <Expr2>
+				|  <Expr2>
+<Expr2>			-> <Expr2> * <Expr3>
+				|  <Expr2> / <Expr3>
+				|  <Expr2> % <Expr3>
+				|  <Expr3>
+<Expr3>			-> <Expr3> ^ <Expr4>
+				|  <Expr4>
+<Expr4>			-> <Id>
+				| ( <Expr1> )
+				|  number
+<Id>			-> id [ <Expr1> ]
+				|  id ( <Exprs> )
+				|  id . <Id>
+				|  id
