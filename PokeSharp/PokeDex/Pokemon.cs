@@ -26,6 +26,12 @@
         public int[] IVs { get; set; }
 
         /// <summary>
+        /// The bonuses applied to the pokemon during battle.
+        /// This includes loosing health.
+        /// </summary>
+        public int[] Bonuses { get; set; }
+
+        /// <summary>
         /// The nature the pokemon was born with.
         /// </summary>
         public Nature Nature { get; set; }

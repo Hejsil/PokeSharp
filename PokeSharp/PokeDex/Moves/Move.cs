@@ -1,4 +1,4 @@
-﻿namespace PokeSharp.PokeDex.Move
+﻿namespace PokeSharp.PokeDex.Moves
 {
     /// <summary>
     /// The data type for a move.

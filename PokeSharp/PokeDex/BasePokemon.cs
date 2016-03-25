@@ -1,4 +1,4 @@
-﻿using PokeSharp.PokeDex.Move;
+﻿using PokeSharp.PokeDex.Moves;
 using System;
 using System.Collections.Generic;
 

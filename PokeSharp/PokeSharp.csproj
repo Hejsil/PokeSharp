@@ -44,12 +44,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PokeDex\Effects\DamagePower.cs" />
+    <Compile Include="PokeDex\Effects\IEffect.cs" />
+    <Compile Include="PokeDex\PokeDex.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PokeDex\BasePokemon.cs" />
     <Compile Include="PokeDex\Evolution.cs" />
-    <Compile Include="PokeDex\Move\LearnMove.cs" />
-    <Compile Include="PokeDex\Move\Move.cs" />
+    <Compile Include="PokeDex\Moves\LearnMove.cs" />
+    <Compile Include="PokeDex\Moves\Move.cs" />
     <Compile Include="PokeDex\Nature.cs" />
     <Compile Include="PokeDex\Pokemon.cs" />
     <Compile Include="PokeDex\PokemonType.cs" />
