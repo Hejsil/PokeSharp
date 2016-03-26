@@ -10,11 +10,6 @@ namespace PokeSharp.PokeDex
     public class PokemonType
     {
         /// <summary>
-        /// The id of the pokemon type.
-        /// </summary>
-        public Guid Id { get; set; }
-
-        /// <summary>
         /// The name of the type.
         /// </summary>
         public string Name { get; set; }

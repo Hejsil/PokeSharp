@@ -44,7 +44,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PokeDex\Effects\DamagePower.cs" />
     <Compile Include="PokeDex\Effects\IEffect.cs" />
     <Compile Include="PokeDex\PokeDex.cs" />
     <Compile Include="Program.cs" />

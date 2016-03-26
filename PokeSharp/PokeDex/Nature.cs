@@ -9,11 +9,6 @@ namespace PokeSharp.PokeDex
     public class Nature
     {
         /// <summary>
-        /// The id of the nature. Used by other data types to refer to this nature.
-        /// </summary>
-        public Guid Id { get; set; }
-
-        /// <summary>
         /// The name of the nature.
         /// </summary>
         public string Name { get; set; }

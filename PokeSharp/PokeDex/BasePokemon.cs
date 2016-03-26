@@ -10,14 +10,14 @@ namespace PokeSharp.PokeDex
     public class BasePokemon
     {
         /// <summary>
-        /// The pokemons id.
-        /// </summary>
-        public Guid Id { get; set; }
-
-        /// <summary>
         /// The pokemons name.
         /// </summary>
         public string Name { get; set; }
+
+        /// <summary>
+        /// The desciption of the pokemon.
+        /// </summary>
+        public string Desciption { get; set; }
 
         /// <summary>
         /// The base stats of the pokemon.
