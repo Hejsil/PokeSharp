@@ -1,5 +1,4 @@
-﻿using PokeSharp.PokeDex.Moves;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace PokeSharp.PokeDex
@@ -33,6 +32,11 @@ namespace PokeSharp.PokeDex
         /// The pokemons evolutions.
         /// </summary>
         public List<Evolution> Evolutions { get; set; }
+
+        /// <summary>
+        /// The abilities the pokemon can have.
+        /// </summary>
+        public List<Ability> PotentialAbilities { get; set; }
 
         /// <summary>
         /// The moves the pokemon can learn.

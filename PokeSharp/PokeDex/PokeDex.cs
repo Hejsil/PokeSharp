@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using PokeSharp.PokeDex.Moves;
 
 namespace PokeSharp.PokeDex
 {
@@ -28,6 +27,9 @@ namespace PokeSharp.PokeDex
         /// </summary>
         public List<PokemonType> Types { get; set; }
 
-
+        /// <summary>
+        /// All the abilities in the pokedex.
+        /// </summary>
+        public List<Ability> Abilities { get; set; }
     }
 }

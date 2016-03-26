@@ -1,7 +1,7 @@
 ﻿using PokeSharp.PokeDex.Requirements;
 using System.Collections.Generic;
 
-namespace PokeSharp.PokeDex.Moves
+namespace PokeSharp.PokeDex
 {
     /// <summary>
     /// The data type for how a move is learned by a pokemon.
