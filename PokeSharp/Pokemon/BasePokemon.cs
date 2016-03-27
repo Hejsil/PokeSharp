@@ -34,14 +34,14 @@ namespace PokeSharp.Pokemon
         public PokemonType[] Types { get; set; }
 
         /// <summary>
+        /// The abilities the pokemon can have.
+        /// </summary>
+        public Ability[] PotentialAbilities { get; set; }
+
+        /// <summary>
         /// The pokemons evolutions.
         /// </summary>
         public List<Evolution> Evolutions { get; set; }
-
-        /// <summary>
-        /// The abilities the pokemon can have.
-        /// </summary>
-        public List<Ability> PotentialAbilities { get; set; }
 
         /// <summary>
         /// The moves the pokemon can learn.
@@ -53,7 +53,7 @@ namespace PokeSharp.Pokemon
             BaseStats = new int[6];
             Types = new PokemonType[2];
             Evolutions = new List<Evolution>();
-            PotentialAbilities = new List<Ability>();
+            PotentialAbilities = new Ability[3];
             LearnableMoves = new List<LearnMove>();
     }
     }
