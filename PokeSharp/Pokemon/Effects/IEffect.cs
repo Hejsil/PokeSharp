@@ -1,4 +1,4 @@
-﻿namespace PokeSharp.PokeDex.Effects
+﻿namespace PokeSharp.Pokemon.Effects
 {
     /// <summary>
     /// An interface for an effect that something can apply to a pokemon.

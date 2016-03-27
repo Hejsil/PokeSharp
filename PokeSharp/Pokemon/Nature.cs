@@ -1,7 +1,7 @@
 ﻿using System;
 using Utility;
 
-namespace PokeSharp.PokeDex
+namespace PokeSharp.Pokemon
 {
     /// <summary>
     /// The data type for a pokemons nature.
@@ -17,5 +17,10 @@ namespace PokeSharp.PokeDex
         /// The modifiers the nature modifies the pokemons stats with.
         /// </summary>
         public Fraction[] Modifiers { get; set; }
+
+        public Nature()
+        {
+            Modifiers = new Fraction[6];
+        }
     }
 }

@@ -1,29 +1,35 @@
-﻿using PokeSharp.PokeDex.Requirements;
+﻿using PokeSharp.Pokemon.Requirements;
 using System.Collections.Generic;
 
-namespace PokeSharp.PokeDex
+namespace PokeSharp.Pokemon
 {
     /// <summary>
-    /// The data type for how a move is learned by a pokemon.
+    /// A data type contaning all the relevant data for an evolution.
     /// </summary>
-    public class LearnMove
+    public class Evolution
     {
         /// <summary>
-        /// The move being learned.
+        /// The pokemon being evolved into.
         /// </summary>
-        public Move Move { get; set; }
+        public BasePokemon Pokemon { get; set; }
 
         /// <summary>
-        /// The requirements for the move to be learned.
+        /// The requirements for the evolution to happen.
         /// </summary>
         public List<IRequirement> Requirements { get; set; }
 
+        public Evolution(BasePokemon pokemon)
+        {
+            Pokemon = pokemon;
+            Requirements = new List<IRequirement>();
+        }
+
         /// <summary>
-        /// Determins whether a pokemon can learn the move or not.
+        /// Determins whether a pokemon can evolve.
         /// </summary>
         /// <param name="pokemon"></param>
         /// <returns></returns>
-        public bool CanLearn(Pokemon pokemon)
+        public bool CanEvolve(Pokemon pokemon)
         {
             foreach (var req in Requirements)
             {

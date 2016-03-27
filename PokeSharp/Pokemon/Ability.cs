@@ -1,7 +1,7 @@
-﻿using PokeSharp.PokeDex.Effects;
+﻿using PokeSharp.Pokemon.Effects;
 using System.Collections.Generic;
 
-namespace PokeSharp.PokeDex
+namespace PokeSharp.Pokemon
 {
     /// <summary>
     /// The data type for an ability a pokemon can have.
@@ -22,6 +22,11 @@ namespace PokeSharp.PokeDex
         /// The effects the ability have.
         /// </summary>
         public EffectBundle Effects { get; set; }
+
+        public Ability()
+        {
+            Effects = new EffectBundle();
+        }
 
     }
 }

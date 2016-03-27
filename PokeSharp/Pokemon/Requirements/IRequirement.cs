@@ -1,4 +1,4 @@
-﻿namespace PokeSharp.PokeDex.Requirements
+﻿namespace PokeSharp.Pokemon.Requirements
 {
     /// <summary>
     /// An interface for requirements that differnt things need, before they can happen.

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace PokeSharp.PokeDex.Effects
+namespace PokeSharp.Pokemon.Effects
 {
     /// <summary>
     /// A data type for effects that occur at certain points during battle.
@@ -36,5 +36,15 @@ namespace PokeSharp.PokeDex.Effects
         /// The effects that take place at the end of the turn.
         /// </summary>
         public List<IEffect> EndTurn { get; set; }
+
+        public EffectBundle()
+        {
+            BeforeHit = new List<IEffect>();
+            AfterHit = new List<IEffect>();
+            BeforeMove = new List<IEffect>();
+            AfterMove = new List<IEffect>();
+            StartTurn = new List<IEffect>();
+            EndTurn = new List<IEffect>();
+        }
     }
 }

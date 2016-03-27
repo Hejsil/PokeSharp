@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace PokeSharp.PokeDex
+namespace PokeSharp.Pokemon
 {
     /// <summary>
     /// A data type reprecenting a pokedex. The pokedex contains all infomation about the pokemon world.
@@ -31,5 +31,14 @@ namespace PokeSharp.PokeDex
         /// All the abilities in the pokedex.
         /// </summary>
         public List<Ability> Abilities { get; set; }
+
+        public PokeDex()
+        {
+            Pokemons = new List<BasePokemon>();
+            Moves = new List<Move>();
+            Natures = new List<Nature>();
+            Types = new List<PokemonType>();
+            Abilities = new List<Ability>();
+        }
     }
 }

@@ -44,22 +44,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PokeDex\Ability.cs" />
-    <Compile Include="PokeDex\Effects\DefaultDamage.cs" />
-    <Compile Include="PokeDex\Effects\EffectBundle.cs" />
-    <Compile Include="PokeDex\Effects\IEffect.cs" />
-    <Compile Include="PokeDex\Item.cs" />
-    <Compile Include="PokeDex\PokeDex.cs" />
+    <Compile Include="Pokemon\Ability.cs" />
+    <Compile Include="Pokemon\Effects\DefaultDamage.cs" />
+    <Compile Include="Pokemon\Effects\EffectBundle.cs" />
+    <Compile Include="Pokemon\Effects\IEffect.cs" />
+    <Compile Include="Pokemon\Item.cs" />
+    <Compile Include="Pokemon\PokeDex.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PokeDex\BasePokemon.cs" />
-    <Compile Include="PokeDex\Evolution.cs" />
-    <Compile Include="PokeDex\LearnMove.cs" />
-    <Compile Include="PokeDex\Move.cs" />
-    <Compile Include="PokeDex\Nature.cs" />
-    <Compile Include="PokeDex\Pokemon.cs" />
-    <Compile Include="PokeDex\PokemonType.cs" />
-    <Compile Include="PokeDex\Requirements\IRequirement.cs" />
+    <Compile Include="Pokemon\BasePokemon.cs" />
+    <Compile Include="Pokemon\Evolution.cs" />
+    <Compile Include="Pokemon\LearnMove.cs" />
+    <Compile Include="Pokemon\Move.cs" />
+    <Compile Include="Pokemon\Nature.cs" />
+    <Compile Include="Pokemon\Pokemon.cs" />
+    <Compile Include="Pokemon\PokemonType.cs" />
+    <Compile Include="Pokemon\Requirements\IRequirement.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

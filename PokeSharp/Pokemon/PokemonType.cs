@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Utility;
 
-namespace PokeSharp.PokeDex
+namespace PokeSharp.Pokemon
 {
     /// <summary>
     /// The type a pokemon can be.
@@ -18,5 +18,10 @@ namespace PokeSharp.PokeDex
         /// The effectiveness attacks have one this type.
         /// </summary>
         public Dictionary<PokemonType, Fraction> Effectiveness { get; set; }
+
+        public PokemonType()
+        {
+            Effectiveness = new Dictionary<PokemonType, Fraction>();
+        }
     }
 }

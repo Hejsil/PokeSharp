@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace PokeSharp.PokeDex
+namespace PokeSharp.Pokemon
 {
     /// <summary>
     /// A data type for the base data of a pokemon.
@@ -14,9 +14,14 @@ namespace PokeSharp.PokeDex
         public string Name { get; set; }
 
         /// <summary>
+        /// The pokemons title.
+        /// </summary>
+        public string Title { get; set; }
+
+        /// <summary>
         /// The desciption of the pokemon.
         /// </summary>
-        public string Desciption { get; set; }
+        public string Description { get; set; }
 
         /// <summary>
         /// The base stats of the pokemon.
@@ -42,5 +47,14 @@ namespace PokeSharp.PokeDex
         /// The moves the pokemon can learn.
         /// </summary>
         public List<LearnMove> LearnableMoves { get; set; }
+
+        public BasePokemon()
+        {
+            BaseStats = new int[6];
+            Types = new PokemonType[2];
+            Evolutions = new List<Evolution>();
+            PotentialAbilities = new List<Ability>();
+            LearnableMoves = new List<LearnMove>();
+    }
     }
 }

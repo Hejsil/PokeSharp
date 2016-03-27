@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Utility;
 
-namespace PokeSharp.PokeDex.Effects
+namespace PokeSharp.Pokemon.Effects
 {
     /// <summary>
     /// The effect that deals damage to targets, using power and stats to calculate the damage.

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace PokeSharp.PokeDex
+namespace PokeSharp.Pokemon
 {
     /// <summary>
     /// The data type for a specific pokemon, that a trainer has caught.
@@ -57,6 +57,15 @@ namespace PokeSharp.PokeDex
         /// The nature the pokemon was born with.
         /// </summary>
         public Nature Nature { get; set; }
+
+        public Pokemon(BasePokemon @base)
+        {
+            Base = @base;
+            EVs = new int[6];
+            IVs = new int[6];
+            Bonuses = new int[6];
+            Moves = new Move[4];
+        }
 
         /// <summary>
         /// Calculates stats using the formulars from bulbapedia (In Generation III onward):

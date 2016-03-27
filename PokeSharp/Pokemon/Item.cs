@@ -1,6 +1,6 @@
-﻿using PokeSharp.PokeDex.Effects;
+﻿using PokeSharp.Pokemon.Effects;
 
-namespace PokeSharp.PokeDex
+namespace PokeSharp.Pokemon
 {
     /// <summary>
     /// A data type for items in the pokemon world.
@@ -21,5 +21,10 @@ namespace PokeSharp.PokeDex
         /// The effects the item has, while being held by a pokemon.
         /// </summary>
         public EffectBundle Effects { get; set; }
+
+        public Item()
+        {
+            Effects = new EffectBundle();
+        }
     }
 }

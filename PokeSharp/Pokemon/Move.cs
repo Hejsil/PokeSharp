@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using PokeSharp.PokeDex.Effects;
+using PokeSharp.Pokemon.Effects;
 
-namespace PokeSharp.PokeDex
+namespace PokeSharp.Pokemon
 {
     /// <summary>
     /// The data type for a move.
@@ -27,5 +27,11 @@ namespace PokeSharp.PokeDex
         /// The effects the move have.
         /// </summary>
         public List<IEffect> Effects { get; set; }
+
+        public Move(PokemonType type)
+        {
+            Type = type;
+            Effects = new List<IEffect>();
+        }
     }
 }
