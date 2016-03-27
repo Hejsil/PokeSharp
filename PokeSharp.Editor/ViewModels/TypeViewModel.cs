@@ -12,9 +12,5 @@ namespace PokeSharp.Editor.ViewModels
         {
 
         }
-
-        public override void RefreshCollections()
-        {
-        }
     }
 }

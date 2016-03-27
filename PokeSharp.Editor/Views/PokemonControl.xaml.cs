@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PokeSharp.Editor.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,20 @@ namespace PokeSharp.Editor.Views
         public PokemonControl()
         {
             InitializeComponent();
+        }
+
+        private void EvolutionList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            (DataContext as PokemonViewModel).RemoveEvolution.OnCanExecuteChanged();
+            (DataContext as PokemonViewModel).EditEvolution.OnCanExecuteChanged();
+        }
+
+        private void Edit_Click(object sender, RoutedEventArgs e)
+        {
+            var window = new EvolutionWindow();
+            window.DataContext = (DataContext as PokemonViewModel).EvolutionViewModel;
+            window.ShowDialog();
+            //(DataContext as PokemonViewModel).Evolutions.NotifyBigChange();
         }
     }
 }

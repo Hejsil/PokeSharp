@@ -3,186 +3,227 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:local="clr-namespace:PokeSharp.Editor.Views"
-             xmlns:ViewModels="clr-namespace:PokeSharp.Editor.ViewModels"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              mc:Ignorable="d">
     <UserControl.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
     </UserControl.Resources>
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="150"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <Grid Margin="5">
+    <GroupBox Grid.Column="1" Header="Pokemon">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="5"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="95"/>
+                <RowDefinition Height="143"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="5"/>
-                <RowDefinition Height="25"/>
-                <RowDefinition Height="5"/>
-                <RowDefinition Height="25"/>
             </Grid.RowDefinitions>
-            <ListView ItemsSource="{Binding ObservedPokemons}" x:Name="PokemonList">
-                <i:Interaction.Triggers>
-                    <i:EventTrigger EventName="SelectionChanged">
-                        <i:InvokeCommandAction Command="{Binding SelectionChanged}"
-                                               CommandParameter="{Binding ElementName=PokemonList, Path=SelectedItem}" />
-                    </i:EventTrigger>
-                </i:Interaction.Triggers>
-            </ListView>
-            <Button Grid.Row="2" Command="{Binding AddPokemon}">Add</Button>
-            <Button Grid.Row="4" Command="{Binding RemovePokemon}">Delete</Button>
-        </Grid>
-        <GroupBox Grid.Column="1" Header="Pokemon" Visibility="{Binding SelectedPokemon, TargetNullValue=Hidden}" >
-            <Grid>
+
+            <Grid Height="20" Width="150" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Row="0">
+                <TextBlock Margin="3,1" Text="Name" Foreground="LightSteelBlue"
+                       Visibility="{Binding ElementName=NameBox, Path=Text.IsEmpty, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                <TextBox Name="NameBox" Background="Transparent" Text="{Binding Pokemon.Name}"/>
+            </Grid>
+            <Grid Height="20" Width="150" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Row="2">
+                <TextBlock Margin="3,1" Text="Title" Foreground="LightSteelBlue"
+                       Visibility="{Binding ElementName=TitleBox, Path=Text.IsEmpty, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                <TextBox Name="TitleBox" Background="Transparent" Text="{Binding Pokemon.Title}"/>
+            </Grid>
+            <Grid Grid.RowSpan="5" Grid.Column="2">
+                <TextBlock Margin="3,1" Text="Description" Foreground="LightSteelBlue"
+                       Visibility="{Binding ElementName=DescBox, Path=Text.IsEmpty, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                <TextBox Name="DescBox" Background="Transparent" Text="{Binding Pokemon.Description}"/>
+            </Grid>
+            <GroupBox Header="Types" Grid.Row="3">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <ComboBox Height="20" Grid.Row="0" SelectedItem="{Binding Pokemon.Types[0]}" ItemsSource="{Binding PokeDex.Types}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}"></TextBlock>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <ComboBox Height="20" Grid.Row="1" SelectedItem="{Binding Pokemon.Types[1]}" ItemsSource="{Binding PokeDex.Types}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}"></TextBlock>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </Grid>
+            </GroupBox>
+            <GroupBox Header="Abilities" Grid.Row="4">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <ComboBox Height="20" Grid.Row="0" SelectedItem="{Binding Pokemon.Abilities[0]}" ItemsSource="{Binding PokeDex.Types}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}"></TextBlock>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <ComboBox Height="20" Grid.Row="1" SelectedItem="{Binding Pokemon.Abilities[1]}" ItemsSource="{Binding PokeDex.Types}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}"></TextBlock>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <ComboBox Height="20" Grid.Row="2" SelectedItem="{Binding Pokemon.Abilities[2]}" ItemsSource="{Binding PokeDex.Types}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}"></TextBlock>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </Grid>
+            </GroupBox>
+            <GroupBox Header="Stats" Grid.Row="5" Grid.ColumnSpan="3">
+                <StackPanel Grid.Column="0">
+                    <Grid Margin="0,1,0,1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="25"/>
+                            <ColumnDefinition Width="30"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0">HP:</TextBlock>
+                        <TextBlock Grid.Column="1" Text="{Binding ElementName=HPSlider, Path=Value}" HorizontalAlignment="Center"/>
+                        <Slider Grid.Column="2" Minimum="0" Maximum="500" Name="HPSlider" Value="{Binding Pokemon.BaseStats[0]}"></Slider>
+                    </Grid>
+                    <Grid Margin="0,1,0,1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="25"/>
+                            <ColumnDefinition Width="30"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0">Att:</TextBlock>
+                        <TextBlock Grid.Column="1" Text="{Binding ElementName=AttSider, Path=Value}" HorizontalAlignment="Center"/>
+                        <Slider Grid.Column="2" Minimum="0" Maximum="500" Name="AttSider" Value="{Binding Pokemon.BaseStats[1]}"></Slider>
+                    </Grid>
+                    <Grid Margin="0,1,0,1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="25"/>
+                            <ColumnDefinition Width="30"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0">Def:</TextBlock>
+                        <TextBlock Grid.Column="1" Text="{Binding ElementName=DefSlider, Path=Value}" HorizontalAlignment="Center"/>
+                        <Slider Grid.Column="2" Minimum="0" Maximum="500" Name="DefSlider" Value="{Binding Pokemon.BaseStats[2]}"></Slider>
+                    </Grid>
+                    <Grid Margin="0,1,0,1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="25"/>
+                            <ColumnDefinition Width="30"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0">SpA:</TextBlock>
+                        <TextBlock Grid.Column="1" Text="{Binding ElementName=SpASlider, Path=Value}" HorizontalAlignment="Center"/>
+                        <Slider Grid.Column="2" Minimum="0" Maximum="500" Name="SpASlider" Value="{Binding Pokemon.BaseStats[3]}"></Slider>
+                    </Grid>
+                    <Grid Margin="0,1,0,1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="25"/>
+                            <ColumnDefinition Width="30"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0">SpD:</TextBlock>
+                        <TextBlock Grid.Column="1" Text="{Binding ElementName=SpDSlider, Path=Value}" HorizontalAlignment="Center"/>
+                        <Slider Grid.Column="2" Minimum="0" Maximum="500" Name="SpDSlider" Value="{Binding Pokemon.BaseStats[4]}"></Slider>
+                    </Grid>
+                    <Grid Margin="0,1,0,1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="25"/>
+                            <ColumnDefinition Width="30"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0">Spe:</TextBlock>
+                        <TextBlock Grid.Column="1" Text="{Binding ElementName=SpeSlider, Path=Value}" HorizontalAlignment="Center"/>
+                        <Slider Grid.Column="2" Minimum="0" Maximum="500" Name="SpeSlider" Value="{Binding Pokemon.BaseStats[5]}"></Slider>
+                    </Grid>
+                </StackPanel>
+            </GroupBox>
+            <Grid Grid.Row="6" Grid.ColumnSpan="3">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="150"/>
-                    <ColumnDefinition Width="5"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="5"></ColumnDefinition>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="20"/>
-                    <RowDefinition Height="5"/>
-                    <RowDefinition Height="20"/>
-                    <RowDefinition Height="70"/>
-                    <RowDefinition Height="95"/>
-                    <RowDefinition Height="143"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
+                <GroupBox Header="Evolutions" Grid.Column="0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="5"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="5"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="5"/>
+                            <ColumnDefinition Width="20"/>
+                        </Grid.ColumnDefinitions>
 
-                <Grid Height="20" Width="150" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Row="0">
-                    <TextBlock Margin="3,1" Text="Name" Foreground="LightSteelBlue"
-                       Visibility="{Binding ElementName=NameBox, Path=Text.IsEmpty, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                    <TextBox Name="NameBox" Background="Transparent" Text="{Binding SelectedPokemon.Name}"/>
-                </Grid>
-                <Grid Height="20" Width="150" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Row="2">
-                    <TextBlock Margin="3,1" Text="Title" Foreground="LightSteelBlue"
-                       Visibility="{Binding ElementName=TitleBox, Path=Text.IsEmpty, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                    <TextBox Name="TitleBox" Background="Transparent" Text="{Binding SelectedPokemon.Title}"/>
-                </Grid>
-                <Grid Grid.RowSpan="4" Grid.Column="2">
-                    <TextBlock Margin="3,1" Text="Description" Foreground="LightSteelBlue"
-                       Visibility="{Binding ElementName=DescBox, Path=Text.IsEmpty, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                    <TextBox Name="DescBox" Background="Transparent" Text="{Binding SelectedPokemon.Description}"/>
-                </Grid>
-                <GroupBox Header="Types" Grid.Row="3">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-                        <ComboBox Height="20" Grid.Row="0" SelectedItem="{Binding SelectedPokemon.Types[0]}" ItemsSource="{Binding PokeDex.Types}">
-                            <ComboBox.ItemTemplate>
+                        <ListView x:Name="EvolutionList" ItemsSource="{Binding Evolutions}" SelectionChanged="EvolutionList_SelectionChanged" Grid.ColumnSpan="1" Grid.RowSpan="6" SelectionMode="Single">
+                            <ListView.ItemTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding Name}"></TextBlock>
+                                    <TextBlock Text="{Binding Pokemon.Name}"/>
                                 </DataTemplate>
-                            </ComboBox.ItemTemplate>
-                        </ComboBox>
-                        <ComboBox Height="20" Grid.Row="1" SelectedItem="{Binding SelectedPokemon.Types[1]}" ItemsSource="{Binding PokeDex.Types}">
-                            <ComboBox.ItemTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding Name}"></TextBlock>
-                                </DataTemplate>
-                            </ComboBox.ItemTemplate>
-                        </ComboBox>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                        <Button Grid.Column="2" Grid.Row="0" Command="{Binding AddEvolution}">
+                            <Image Source="../Resources/Add_16x.png" 
+                                   RenderOptions.BitmapScalingMode="NearestNeighbor" 
+                                   SnapsToDevicePixels="True"/>
+                        </Button>
+                        <Button Grid.Column="2" Grid.Row="2" Command="{Binding RemoveEvolution}" CommandParameter="{Binding ElementName=EvolutionList, Path=SelectedItem}">
+                            <Image Source="../Resources/Remove_color_16x.png" 
+                                   RenderOptions.BitmapScalingMode="NearestNeighbor" 
+                                   SnapsToDevicePixels="True"/>
+                        </Button>
+                        <Button Grid.Column="2" Grid.Row="4" Click="Edit_Click" Command="{Binding EditEvolution}" CommandParameter="{Binding ElementName=EvolutionList, Path=SelectedItem}">
+                            <Image Source="../Resources/VSO_Edit_color_16x.png" 
+                                   RenderOptions.BitmapScalingMode="NearestNeighbor" 
+                                   SnapsToDevicePixels="True"/>
+                        </Button>
                     </Grid>
                 </GroupBox>
-                <GroupBox Header="Abilities" Grid.Row="4">
+                <GroupBox Header="Moves" Grid.Column="2">
                     <Grid>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="5"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="5"/>
+                            <RowDefinition Height="20"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                        <ComboBox Height="20" Grid.Row="0" SelectedItem="{Binding SelectedPokemon.Abilities[0]}" ItemsSource="{Binding PokeDex.Types}">
-                            <ComboBox.ItemTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding Name}"></TextBlock>
-                                </DataTemplate>
-                            </ComboBox.ItemTemplate>
-                        </ComboBox>
-                        <ComboBox Height="20" Grid.Row="1" SelectedItem="{Binding SelectedPokemon.Abilities[1]}" ItemsSource="{Binding PokeDex.Types}">
-                            <ComboBox.ItemTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding Name}"></TextBlock>
-                                </DataTemplate>
-                            </ComboBox.ItemTemplate>
-                        </ComboBox>
-                        <ComboBox Height="20" Grid.Row="2" SelectedItem="{Binding SelectedPokemon.Abilities[2]}" ItemsSource="{Binding PokeDex.Types}">
-                            <ComboBox.ItemTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding Name}"></TextBlock>
-                                </DataTemplate>
-                            </ComboBox.ItemTemplate>
-                        </ComboBox>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="5"/>
+                            <ColumnDefinition Width="20"/>
+                        </Grid.ColumnDefinitions>
+                        <ListView ItemsSource="{Binding Moves}" Grid.ColumnSpan="1" Grid.RowSpan="6" SelectionMode="Single">
+
+                        </ListView>
                     </Grid>
-                </GroupBox>
-                <GroupBox Header="Stats" Grid.Row="5" Grid.ColumnSpan="3">
-                    <StackPanel Grid.Column="0">
-                        <Grid Margin="0,1,0,1">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="25"/>
-                                <ColumnDefinition Width="30"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <TextBlock Grid.Column="0">HP:</TextBlock>
-                            <TextBlock Grid.Column="1" Text="{Binding ElementName=HPSlider, Path=Value}" HorizontalAlignment="Center"/>
-                            <Slider Grid.Column="2" Minimum="0" Maximum="500" Name="HPSlider" Value="{Binding SelectedPokemon.BaseStats[0]}"></Slider>
-                        </Grid>
-                        <Grid Margin="0,1,0,1">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="25"/>
-                                <ColumnDefinition Width="30"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <TextBlock Grid.Column="0">Att:</TextBlock>
-                            <TextBlock Grid.Column="1" Text="{Binding ElementName=AttSider, Path=Value}" HorizontalAlignment="Center"/>
-                            <Slider Grid.Column="2" Minimum="0" Maximum="500" Name="AttSider" Value="{Binding SelectedPokemon.BaseStats[1]}"></Slider>
-                        </Grid>
-                        <Grid Margin="0,1,0,1">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="25"/>
-                                <ColumnDefinition Width="30"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <TextBlock Grid.Column="0">Def:</TextBlock>
-                            <TextBlock Grid.Column="1" Text="{Binding ElementName=DefSlider, Path=Value}" HorizontalAlignment="Center"/>
-                            <Slider Grid.Column="2" Minimum="0" Maximum="500" Name="DefSlider" Value="{Binding SelectedPokemon.BaseStats[2]}"></Slider>
-                        </Grid>
-                        <Grid Margin="0,1,0,1">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="25"/>
-                                <ColumnDefinition Width="30"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <TextBlock Grid.Column="0">SpA:</TextBlock>
-                            <TextBlock Grid.Column="1" Text="{Binding ElementName=SpASlider, Path=Value}" HorizontalAlignment="Center"/>
-                            <Slider Grid.Column="2" Minimum="0" Maximum="500" Name="SpASlider" Value="{Binding SelectedPokemon.BaseStats[3]}"></Slider>
-                        </Grid>
-                        <Grid Margin="0,1,0,1">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="25"/>
-                                <ColumnDefinition Width="30"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <TextBlock Grid.Column="0">SpD:</TextBlock>
-                            <TextBlock Grid.Column="1" Text="{Binding ElementName=SpDSlider, Path=Value}" HorizontalAlignment="Center"/>
-                            <Slider Grid.Column="2" Minimum="0" Maximum="500" Name="SpDSlider" Value="{Binding SelectedPokemon.BaseStats[4]}"></Slider>
-                        </Grid>
-                        <Grid Margin="0,1,0,1">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="25"/>
-                                <ColumnDefinition Width="30"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <TextBlock Grid.Column="0">Spe:</TextBlock>
-                            <TextBlock Grid.Column="1" Text="{Binding ElementName=SpeSlider, Path=Value}" HorizontalAlignment="Center"/>
-                            <Slider Grid.Column="2" Minimum="0" Maximum="500" Name="SpeSlider" Value="{Binding SelectedPokemon.BaseStats[5]}"></Slider>
-                        </Grid>
-                    </StackPanel>
                 </GroupBox>
             </Grid>
-        </GroupBox>
-    </Grid>
+        </Grid>
+    </GroupBox>
 </UserControl>

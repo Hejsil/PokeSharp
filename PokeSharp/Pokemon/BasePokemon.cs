@@ -52,8 +52,8 @@ namespace PokeSharp.Pokemon
         {
             BaseStats = new int[6];
             Types = new PokemonType[2];
-            Evolutions = new List<Evolution>();
             PotentialAbilities = new Ability[3];
+            Evolutions = new List<Evolution>();
             LearnableMoves = new List<LearnMove>();
     }
     }

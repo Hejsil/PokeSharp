@@ -6,14 +6,19 @@
              xmlns:ViewModels="clr-namespace:PokeSharp.Editor.ViewModels"
              StartupUri="Views\MainWindow.xaml">
     <Application.Resources>
-        <DataTemplate DataType="{x:Type ViewModels:MainWindowViewModel}">
+        <ResourceDictionary>
+            <DataTemplate DataType="{x:Type ViewModels:MainWindowViewModel}">
                 <Views:MainWindow/>
             </DataTemplate>
-        <DataTemplate DataType="{x:Type ViewModels:PokemonViewModel}">
-            <Views:PokemonControl Margin="0,0,0,0"/>
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type ViewModels:TypeViewModel}">
-            <Views:TypeControl/>
-        </DataTemplate>
+            <DataTemplate DataType="{x:Type ViewModels:PokemonListViewModel}">
+                <Views:PokemonListControl/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type ViewModels:PokemonViewModel}">
+                <Views:PokemonControl/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type ViewModels:TypeViewModel}">
+                <Views:TypeControl/>
+            </DataTemplate>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

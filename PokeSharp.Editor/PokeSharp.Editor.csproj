@@ -63,18 +63,30 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ViewModels\DelegateCommand.cs" />
+    <Compile Include="ViewModels\EvolutionViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\ObservableObject.cs" />
+    <Compile Include="ViewModels\PokemonListViewModel.cs" />
     <Compile Include="ViewModels\PokemonViewModel.cs" />
     <Compile Include="ViewModels\PokeSharpViewModel.cs" />
     <Compile Include="ViewModels\SyncedObservableList.cs" />
     <Compile Include="ViewModels\TypeViewModel.cs" />
+    <Compile Include="Views\EvolutionWindow.xaml.cs">
+      <DependentUpon>EvolutionWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\PokemonControl.xaml.cs">
       <DependentUpon>PokemonControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PokemonListControl.xaml.cs">
+      <DependentUpon>PokemonListControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\TypeControl.xaml.cs">
       <DependentUpon>TypeControl.xaml</DependentUpon>
     </Compile>
+    <Page Include="Views\EvolutionWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -88,6 +100,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\PokemonControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PokemonListControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -129,6 +145,15 @@
       <Project>{47932170-a76c-465c-88c0-269b4c62ab1e}</Project>
       <Name>PokeSharp</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\VSO_Edit_color_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Remove_color_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Add_16x.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Converters\" />

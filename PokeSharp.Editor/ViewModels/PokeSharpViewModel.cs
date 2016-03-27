@@ -37,9 +37,9 @@ namespace PokeSharp.Editor.ViewModels
             PokeDex = dex;
         }
 
-        /// <summary>
-        /// A method that should refresh all obserable collections in the view model.
-        /// </summary>
-        public abstract void RefreshCollections();
+        public virtual void NewPokeDex(PokeDex dex)
+        {
+            PokeDex = dex;
+        }
     }
 }

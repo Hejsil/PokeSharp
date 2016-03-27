@@ -1,73 +1,105 @@
 ﻿using PokeSharp.Pokemon;
-using System.Collections.Generic;
 using System;
+using System.Collections.Generic;
 using System.Linq;
-using System.Collections.ObjectModel;
-using System.Collections.Specialized;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace PokeSharp.Editor.ViewModels
 {
     public class PokemonViewModel : PokeSharpViewModel
     {
-        public SyncedObservableList<BasePokemon> ObservedPokemons
-        {
-            get { return _observedpokemons; }
-            set
-            {
-                _observedpokemons = value;
-                OnPropertyChanged(nameof(ObservedPokemons));
-            }
-        }
-        SyncedObservableList<BasePokemon> _observedpokemons;
+        BasePokemon _default = new BasePokemon();
 
-        public BasePokemon SelectedPokemon
+        public BasePokemon Pokemon
         {
-            get { return _selectedpokemon; }
+            get { return (_selectedpokemon != null) ? _selectedpokemon : _default; }
             set
             {
                 _selectedpokemon = value;
-                OnPropertyChanged(nameof(SelectedPokemon));
-                RemovePokemon.OnCanExecuteChanged();
+                OnPropertyChanged(nameof(Pokemon));
             }
         }
         BasePokemon _selectedpokemon;
 
-        public DelegateCommand AddPokemon { get; set; }
-        public DelegateCommand RemovePokemon { get; set; }
-        public DelegateCommand SelectionChanged { get; set; }
-
-        public PokemonViewModel(string name, PokeDex dex) 
-            : base(name, dex)
+        public SyncedObservableList<Evolution> Evolutions
         {
-            AddPokemon = new DelegateCommand(AddPokemonExecute, o => true);
-            RemovePokemon = new DelegateCommand(RemovePokemonExecute, RemovePokemonCanExecute);
-            SelectionChanged = new DelegateCommand(SelectionChangedExecute, o => true);
+            get { return _evolutions; }
+            set
+            {
+                _evolutions = value;
+                OnPropertyChanged(nameof(Evolutions));
+            }
+        }
+        SyncedObservableList<Evolution> _evolutions;
+
+        public SyncedObservableList<LearnMove> Moves
+        {
+            get { return _moves; }
+            set
+            {
+                _moves = value;
+                OnPropertyChanged(nameof(Moves));
+            }
+        }
+        SyncedObservableList<LearnMove> _moves;
+
+        public EvolutionViewModel EvolutionViewModel
+        {
+            get { return _evolutionviewmodel; }
+            set
+            {
+                _evolutionviewmodel = value;
+                OnPropertyChanged(nameof(EvolutionViewModel));
+            }
+        }
+        EvolutionViewModel _evolutionviewmodel;
+
+        public DelegateCommand AddEvolution { get; set; }
+        public DelegateCommand RemoveEvolution { get; set; }
+        public DelegateCommand EditEvolution { get; set; }
+
+        public PokemonViewModel(PokeDex dex)
+            : base("", dex)
+        {
+            AddEvolution = new DelegateCommand(AddEvolutionExecute, AddEvolutionCanExecute);
+            RemoveEvolution = new DelegateCommand(RemoveEvolutionExecute, RemoveEvolutionCanExecute);
+            EditEvolution = new DelegateCommand(EditEvolutionExecute, EditEvolutionCanExecute);
+            Evolutions = new SyncedObservableList<Evolution>(() => Pokemon.Evolutions);
+            Moves = new SyncedObservableList<LearnMove>(() => Pokemon.LearnableMoves);
+            EvolutionViewModel = new EvolutionViewModel(PokeDex);
         }
 
-        private void SelectionChangedExecute(object obj)
+        private bool EditEvolutionCanExecute(object arg)
         {
-            SelectedPokemon = obj as BasePokemon;
+            return arg != null;
         }
 
-        private bool RemovePokemonCanExecute(object arg)
+        private void EditEvolutionExecute(object obj)
         {
-            return SelectedPokemon != null;
+            EvolutionViewModel.Evolution = obj as Evolution;
         }
 
-        private void RemovePokemonExecute(object obj)
+        private bool RemoveEvolutionCanExecute(object arg)
         {
-            ObservedPokemons.Remove(SelectedPokemon);
-            SelectedPokemon = null;
+            return arg != null;
         }
 
-        private void AddPokemonExecute(object obj)
+        private void RemoveEvolutionExecute(object obj)
         {
-            ObservedPokemons.Add(new BasePokemon());
+            Evolutions.Remove(obj as Evolution);
+            RemoveEvolution.OnCanExecuteChanged();
+            EditEvolution.OnCanExecuteChanged();
         }
 
-        public override void RefreshCollections()
+        private bool AddEvolutionCanExecute(object arg)
         {
-            ObservedPokemons = new SyncedObservableList<BasePokemon>(PokeDex.Pokemons);
+            return PokeDex.Pokemons.Count != 0;
+        }
+
+        private void AddEvolutionExecute(object obj)
+        {
+            Evolutions.Add(new Evolution(PokeDex.Pokemons.First()));
         }
     }
 }

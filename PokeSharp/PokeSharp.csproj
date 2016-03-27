@@ -50,6 +50,7 @@
     <Compile Include="Pokemon\Effects\IEffect.cs" />
     <Compile Include="Pokemon\Item.cs" />
     <Compile Include="Pokemon\PokeDex.cs" />
+    <Compile Include="Pokemon\Requirements\LevelRepuirement.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Pokemon\BasePokemon.cs" />

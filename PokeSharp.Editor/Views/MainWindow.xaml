@@ -7,7 +7,9 @@
         xmlns:Views="clr-namespace:PokeSharp.Editor.Views"
         xmlns:ViewModels="clr-namespace:PokeSharp.Editor.ViewModels"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="596">
+        Title="MainWindow"
+        Width="650" Height="650"
+        MinWidth="650" MinHeight="650">
     <Window.DataContext>
         <ViewModels:MainWindowViewModel/>
     </Window.DataContext>

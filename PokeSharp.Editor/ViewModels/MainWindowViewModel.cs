@@ -25,17 +25,17 @@ namespace PokeSharp.Editor.ViewModels
             : base("", new PokeDex())
         {
             ViewModels = new ObservableCollection<PokeSharpViewModel>();
-            ViewModels.Add(new PokemonViewModel("Pokemons", PokeDex));
+            ViewModels.Add(new PokemonListViewModel("Pokemons", PokeDex));
             ViewModels.Add(new TypeViewModel("Types", PokeDex));
-
-            RefreshCollections();
         }
 
-        public override void RefreshCollections()
+        public override void NewPokeDex(PokeDex dex)
         {
-            foreach (var viewmodel in ViewModels)
+            base.NewPokeDex(dex);
+
+            foreach (var item in ViewModels)
             {
-                viewmodel.RefreshCollections();
+                item.NewPokeDex(dex);
             }
         }
     }
