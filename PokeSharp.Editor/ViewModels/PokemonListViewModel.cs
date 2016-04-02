@@ -35,14 +35,22 @@ namespace PokeSharp.Editor.ViewModels
 
         public DelegateCommand AddPokemon { get; set; }
         public DelegateCommand RemovePokemon { get; set; }
+        public DelegateCommand SelectionChanged { get; set; }
 
         public PokemonListViewModel(string name, PokeDex dex) 
             : base(name, dex)
         {
             AddPokemon = new DelegateCommand(AddPokemonExecute, o => true);
             RemovePokemon = new DelegateCommand(RemovePokemonExecute, RemovePokemonCanExecute);
+            SelectionChanged = new DelegateCommand(SelectionChangedExecute, (o) => true);
             ObservedPokemons = new SyncedObservableList<BasePokemon>(() => PokeDex.Pokemons);
             PokemonViewModel = new PokemonViewModel(PokeDex);
+        }
+
+        private void SelectionChangedExecute(object obj)
+        {
+            PokemonViewModel.Pokemon = obj as BasePokemon;
+            RemovePokemon.OnCanExecuteChanged();
         }
 
         private bool RemovePokemonCanExecute(object arg)

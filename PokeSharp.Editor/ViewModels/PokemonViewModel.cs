@@ -58,6 +58,7 @@ namespace PokeSharp.Editor.ViewModels
         public DelegateCommand AddEvolution { get; set; }
         public DelegateCommand RemoveEvolution { get; set; }
         public DelegateCommand EditEvolution { get; set; }
+        public DelegateCommand SelectionChanged { get; set; }
 
         public PokemonViewModel(PokeDex dex)
             : base("", dex)
@@ -65,9 +66,16 @@ namespace PokeSharp.Editor.ViewModels
             AddEvolution = new DelegateCommand(AddEvolutionExecute, AddEvolutionCanExecute);
             RemoveEvolution = new DelegateCommand(RemoveEvolutionExecute, RemoveEvolutionCanExecute);
             EditEvolution = new DelegateCommand(EditEvolutionExecute, EditEvolutionCanExecute);
+            SelectionChanged = new DelegateCommand(SelectionChangedExecute, o => true);
             Evolutions = new SyncedObservableList<Evolution>(() => Pokemon.Evolutions);
             Moves = new SyncedObservableList<LearnMove>(() => Pokemon.LearnableMoves);
             EvolutionViewModel = new EvolutionViewModel(PokeDex);
+        }
+
+        private void SelectionChangedExecute(object obj)
+        {
+            RemoveEvolution.OnCanExecuteChanged();
+            EditEvolution.OnCanExecuteChanged();
         }
 
         private bool EditEvolutionCanExecute(object arg)

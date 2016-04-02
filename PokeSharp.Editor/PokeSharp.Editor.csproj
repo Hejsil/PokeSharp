@@ -74,6 +74,9 @@
     <Compile Include="Views\EvolutionWindow.xaml.cs">
       <DependentUpon>EvolutionWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\LevelRequirementControl.xaml.cs">
+      <DependentUpon>LevelRequirementControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\PokemonControl.xaml.cs">
       <DependentUpon>PokemonControl.xaml</DependentUpon>
     </Compile>
@@ -84,6 +87,10 @@
       <DependentUpon>TypeControl.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\EvolutionWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LevelRequirementControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -144,6 +151,10 @@
     <ProjectReference Include="..\PokeSharp\PokeSharp.csproj">
       <Project>{47932170-a76c-465c-88c0-269b4c62ab1e}</Project>
       <Name>PokeSharp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Utility\Utility.csproj">
+      <Project>{dec822f1-49fc-43c0-a400-82f98d7ff6e7}</Project>
+      <Name>Utility</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

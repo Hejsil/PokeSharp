@@ -1,5 +1,4 @@
-﻿using PokeSharp.Editor.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,16 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace PokeSharp.Editor.Views
 {
     /// <summary>
-    /// Interaction logic for EvolutionWindow.xaml
+    /// Interaction logic for LevelRequirementControl.xaml
     /// </summary>
-    public partial class EvolutionWindow : Window
+    public partial class LevelRequirementControl : UserControl
     {
-        public EvolutionWindow()
+        public LevelRequirementControl()
         {
             InitializeComponent();
         }

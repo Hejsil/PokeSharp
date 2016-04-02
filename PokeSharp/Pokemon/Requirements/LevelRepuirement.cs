@@ -8,16 +8,35 @@ namespace PokeSharp.Pokemon.Requirements
 {
     public class LevelRepuirement : IRequirement
     {
-        public string Description
-        {
-            get { return "Pokemon is equal to, or above level [" + Level + "]"; }
-        }
-
+        public Compare LevelComparison { get; set; }
         public int Level { get; set; }
 
         public bool IsMet(Pokemon pokemon)
         {
-            return pokemon.Level >= Level;
+            switch (LevelComparison)
+            {
+                case Compare.GreaterEqual:
+                    return pokemon.Level >= Level;
+                case Compare.LesserEqual:
+                    return pokemon.Level <= Level;
+                case Compare.Greater:
+                    return pokemon.Level > Level;
+                case Compare.Lesser:
+                    return pokemon.Level < Level;
+                case Compare.Equal:
+                    return pokemon.Level == Level;
+                default:
+                    throw new NotImplementedException();
+            }
+        }
+
+        public enum Compare
+        {
+            GreaterEqual,
+            LesserEqual,
+            Greater,
+            Lesser,
+            Equal
         }
     }
 }

@@ -5,8 +5,6 @@
     /// </summary>
     public interface IRequirement
     {
-        string Description { get; }
-
         /// <summary>
         /// Checks whether a pokemon meets the requirement.
         /// </summary>

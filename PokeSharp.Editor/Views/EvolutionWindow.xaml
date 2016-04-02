@@ -3,7 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:poke="clr-namespace:PokeSharp.Pokemon.Requirements;assembly=PokeSharp"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:local="clr-namespace:PokeSharp.Editor.Views"
+        xmlns:Requirements="clr-namespace:PokeSharp.Pokemon.Requirements;assembly=PokeSharp"
         mc:Ignorable="d"
         Title="EvolutionWindow" Height="300" Width="500">
     <Grid>
@@ -14,7 +17,7 @@
 
         <Grid Grid.Column="0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="42"/>
+                <RowDefinition Height="43"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <GroupBox Header="Evolution" Grid.Row="0">
@@ -40,33 +43,47 @@
                         <RowDefinition Height="5"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-
-                    <ListView Grid.Row="2" ItemsSource="{Binding Requirements}" Grid.ColumnSpan="5" SelectionMode="Single">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <TextBlock />
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
                     <ComboBox Name="RequirementComboBox" ItemsSource="{Binding RequirementCreation}">
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
                                 <TextBlock Text="{Binding Item1}"></TextBlock>
                             </DataTemplate>
                         </ComboBox.ItemTemplate>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged">
+                                <i:InvokeCommandAction Command="{Binding RequirementTypeChanged}"></i:InvokeCommandAction>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
                     </ComboBox>
-                    <Button Grid.Row="0" Grid.Column="2">
+                    <Button Grid.Row="0" Grid.Column="2" Command="{Binding AddRequirement}" CommandParameter="{Binding ElementName=RequirementComboBox, Path=SelectedItem.Item2}">
                         <Image Source="../Resources/Add_16x.png" 
                                    RenderOptions.BitmapScalingMode="NearestNeighbor" 
                                    SnapsToDevicePixels="True"/>
                     </Button>
-                    <Button Grid.Row="0" Grid.Column="4">
+                    <Button Grid.Row="0" Grid.Column="4" Command="{Binding RemoveRequirement}" CommandParameter="{Binding ElementName=ReqList, Path=SelectedItem}">
                         <Image Source="../Resources/Remove_color_16x.png" 
                                    RenderOptions.BitmapScalingMode="NearestNeighbor" 
                                    SnapsToDevicePixels="True"/>
                     </Button>
+
+                    <ListView Grid.Row="2" Name="ReqList" ItemsSource="{Binding Requirements}" Grid.ColumnSpan="5" SelectionMode="Single">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged">
+                                <i:InvokeCommandAction Command="{Binding SelectedRequirementChanged}" CommandParameter="{Binding ElementName=ReqList, Path=SelectedItem}"></i:InvokeCommandAction>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </ListView>
                 </Grid>
             </GroupBox>
+            
         </Grid>
+
+        <ContentControl Content="{Binding SelectedRequirement}" Grid.Column="1"  Visibility="{Binding ElementName=ReqList, Path=SelectedItem, TargetNullValue=Hidden}">
+            <ContentControl.ContentTemplate>
+                <DataTemplate DataType="{x:Type Requirements:LevelRepuirement}">
+                    <local:LevelRequirementControl/>
+                </DataTemplate>
+            </ContentControl.ContentTemplate>
+        </ContentControl>
     </Grid>
 </Window>

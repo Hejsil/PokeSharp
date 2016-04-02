@@ -20,16 +20,27 @@
                 <RowDefinition Height="5"/>
                 <RowDefinition Height="25"/>
             </Grid.RowDefinitions>
-            <ListView ItemsSource="{Binding ObservedPokemons}" SelectionChanged="PokemonList_SelectionChanged" x:Name="PokemonList" SelectionMode="Single">
+            <ListView ItemsSource="{Binding ObservedPokemons}" x:Name="PokemonList" SelectionMode="Single">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding Name}"/>
                     </DataTemplate>
                 </ListView.ItemTemplate>
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="SelectionChanged">
+                        <i:InvokeCommandAction Command="{Binding SelectionChanged}" CommandParameter="{Binding ElementName=PokemonList, Path=SelectedItem}"></i:InvokeCommandAction>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
             </ListView>
             <Button Grid.Row="2" Command="{Binding AddPokemon}">Add</Button>
             <Button Grid.Row="4" Command="{Binding RemovePokemon}" CommandParameter="{Binding ElementName=PokemonList, Path=SelectedItem}">Delete</Button>
         </Grid>
-        <ContentControl Content="{Binding PokemonViewModel}" Grid.Column="1"  Visibility="{Binding ElementName=PokemonList, Path=SelectedItem, TargetNullValue=Hidden}" />
+        <ContentControl Content="{Binding PokemonViewModel}" Grid.Column="1"  Visibility="{Binding ElementName=PokemonList, Path=SelectedItem, TargetNullValue=Hidden}">
+            <ContentControl.Resources>
+                <DataTemplate DataType="{x:Type ViewModels:PokemonViewModel}">
+                    <local:PokemonControl/>
+                </DataTemplate>
+            </ContentControl.Resources>
+        </ContentControl>
     </Grid>
 </UserControl>

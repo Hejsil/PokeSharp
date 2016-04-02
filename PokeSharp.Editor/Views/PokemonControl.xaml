@@ -179,12 +179,17 @@
                             <ColumnDefinition Width="20"/>
                         </Grid.ColumnDefinitions>
 
-                        <ListView x:Name="EvolutionList" ItemsSource="{Binding Evolutions}" SelectionChanged="EvolutionList_SelectionChanged" Grid.ColumnSpan="1" Grid.RowSpan="6" SelectionMode="Single">
+                        <ListView x:Name="EvolutionList" ItemsSource="{Binding Evolutions}" Grid.ColumnSpan="1" Grid.RowSpan="6" SelectionMode="Single">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding Pokemon.Name}"/>
                                 </DataTemplate>
                             </ListView.ItemTemplate>
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="SelectionChanged">
+                                    <i:InvokeCommandAction Command="{Binding SelectionChanged}"></i:InvokeCommandAction>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
                         </ListView>
                         <Button Grid.Column="2" Grid.Row="0" Command="{Binding AddEvolution}">
                             <Image Source="../Resources/Add_16x.png" 
@@ -196,7 +201,7 @@
                                    RenderOptions.BitmapScalingMode="NearestNeighbor" 
                                    SnapsToDevicePixels="True"/>
                         </Button>
-                        <Button Grid.Column="2" Grid.Row="4" Click="Edit_Click" Command="{Binding EditEvolution}" CommandParameter="{Binding ElementName=EvolutionList, Path=SelectedItem}">
+                        <Button Grid.Column="2" Grid.Row="4" Click="Edit_Click">
                             <Image Source="../Resources/VSO_Edit_color_16x.png" 
                                    RenderOptions.BitmapScalingMode="NearestNeighbor" 
                                    SnapsToDevicePixels="True"/>
