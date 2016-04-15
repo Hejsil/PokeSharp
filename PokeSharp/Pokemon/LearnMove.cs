@@ -16,13 +16,12 @@ namespace PokeSharp.Pokemon
         /// <summary>
         /// The requirements for the move to be learned.
         /// </summary>
-        public List<IRequirement> Requirements { get; set; }
-
-        public LearnMove(Move move)
+        public List<IRequirement> Requirements
         {
-            Move = move;
-            Requirements = new List<IRequirement>();
+            get { return _requirements; }
+            set { _requirements = value; }
         }
+        private List<IRequirement> _requirements = new List<IRequirement>();
 
         /// <summary>
         /// Determins whether a pokemon can learn the move or not.

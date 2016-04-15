@@ -1,5 +1,4 @@
-﻿using System;
-using Utility;
+﻿using PokeSharp.Utility;
 
 namespace PokeSharp.Pokemon
 {
@@ -16,11 +15,15 @@ namespace PokeSharp.Pokemon
         /// <summary>
         /// The modifiers the nature modifies the pokemons stats with.
         /// </summary>
-        public Fraction[] Modifiers { get; set; }
-
-        public Nature()
+        public double[] Modifiers
         {
-            Modifiers = new Fraction[6];
+            get { return _modifiers; }
+            set
+            {
+                Util.EnsureSize(value, 6);
+                _modifiers = value;
+            }
         }
+        private double[] _modifiers = new double[6];
     }
 }

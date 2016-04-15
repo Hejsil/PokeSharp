@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("PokeSharp")]
+[assembly: AssemblyTitle("PokeSharp.Sample")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("PokeSharp")]
+[assembly: AssemblyProduct("PokeSharp.Sample")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("47932170-a76c-465c-88c0-269b4c62ab1e")]
+[assembly: Guid("edaf85fa-f78e-430e-980f-334d324c0008")]
 
 // Version information for an assembly consists of the following four values:
 //

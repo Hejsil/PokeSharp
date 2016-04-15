@@ -26,12 +26,17 @@ namespace PokeSharp.Pokemon
         /// <summary>
         /// The effects the move have.
         /// </summary>
-        public List<IEffect> Effects { get; set; }
+        public List<IEffect> Effects
+        {
+            get { return _effects; }
+            set { _effects = value; }
+        }
+        private List<IEffect> _effects = new List<IEffect>();
+
 
         public Move(PokemonType type)
         {
             Type = type;
-            Effects = new List<IEffect>();
         }
     }
 }

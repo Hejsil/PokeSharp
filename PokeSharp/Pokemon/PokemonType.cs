@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Utility;
+﻿using System.Collections.Generic;
 
 namespace PokeSharp.Pokemon
 {
@@ -17,11 +15,16 @@ namespace PokeSharp.Pokemon
         /// <summary>
         /// The effectiveness attacks have one this type.
         /// </summary>
-        public Dictionary<PokemonType, Fraction> Effectiveness { get; set; }
+        public Dictionary<string, double> Effectiveness
+        {
+            get { return _effectiveness; }
+            set { _effectiveness = value; }
+        }
+        private Dictionary<string, double> _effectiveness = new Dictionary<string, double>();
+
 
         public PokemonType()
         {
-            Effectiveness = new Dictionary<PokemonType, Fraction>();
         }
     }
 }

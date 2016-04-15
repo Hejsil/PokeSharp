@@ -20,11 +20,11 @@ namespace PokeSharp.Pokemon
         /// <summary>
         /// The effects the item has, while being held by a pokemon.
         /// </summary>
-        public EffectBundle Effects { get; set; }
-
-        public Item()
+        public EffectBundle Effects
         {
-            Effects = new EffectBundle();
+            get { return _effects; }
+            set { _effects = value; }
         }
+        private EffectBundle _effects = new EffectBundle();
     }
 }

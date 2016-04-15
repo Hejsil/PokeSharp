@@ -10,41 +10,66 @@ namespace PokeSharp.Pokemon.Effects
         /// <summary>
         /// The effects that take place just before a move is used.
         /// </summary>
-        public List<IEffect> BeforeMove { get; set; }
+        public List<IEffect> BeforeMove
+        {
+            get { return _beforemove; }
+            set { _beforemove = value; }
+        }
+        private List<IEffect> _beforemove = new List<IEffect>();
+
 
         /// <summary>
         /// The effects that take place just after a move is used.
         /// </summary>
-        public List<IEffect> AfterMove { get; set; }
+        public List<IEffect> AfterMove
+        {
+            get { return _aftermove; }
+            set { _aftermove = value; }
+        }
+        private List<IEffect> _aftermove = new List<IEffect>();
+
 
         /// <summary>
         /// The effects that take place just before the pokemon having the ability is being hit. 
         /// </summary>
-        public List<IEffect> BeforeHit { get; set; }
+        public List<IEffect> BeforeHit
+        {
+            get { return _beforehit; }
+            set { _beforehit = value; }
+        }
+        private List<IEffect> _beforehit = new List<IEffect>();
+
 
         /// <summary>
         /// The effects that take place just after the pokemon having the ability has been hit.
         /// </summary>
-        public List<IEffect> AfterHit { get; set; }
+        public List<IEffect> AfterHit
+        {
+            get { return _afterhit; }
+            set { _afterhit = value; }
+        }
+        private List<IEffect> _afterhit = new List<IEffect>();
+
 
         /// <summary>
         /// The effects that take place at the start of the turn.
         /// </summary>
-        public List<IEffect> StartTurn { get; set; }
+        public List<IEffect> StartTurn
+        {
+            get { return _startturn; }
+            set { _startturn = value; }
+        }
+        private List<IEffect> _startturn = new List<IEffect>();
+
 
         /// <summary>
         /// The effects that take place at the end of the turn.
         /// </summary>
-        public List<IEffect> EndTurn { get; set; }
-
-        public EffectBundle()
+        public List<IEffect> EndTurn
         {
-            BeforeHit = new List<IEffect>();
-            AfterHit = new List<IEffect>();
-            BeforeMove = new List<IEffect>();
-            AfterMove = new List<IEffect>();
-            StartTurn = new List<IEffect>();
-            EndTurn = new List<IEffect>();
+            get { return _endturn; }
+            set { _endturn = value; }
         }
+        private List<IEffect> _endturn = new List<IEffect>();
     }
 }

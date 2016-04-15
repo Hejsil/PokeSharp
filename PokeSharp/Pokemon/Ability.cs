@@ -21,12 +21,11 @@ namespace PokeSharp.Pokemon
         /// <summary>
         /// The effects the ability have.
         /// </summary>
-        public EffectBundle Effects { get; set; }
-
-        public Ability()
+        public EffectBundle Effects
         {
-            Effects = new EffectBundle();
+            get { return _effects; }
+            set { _effects = value; }
         }
-
+        private EffectBundle _effects = new EffectBundle();
     }
 }

@@ -1,0 +1,175 @@
+{
+  "$id": "1",
+  "Types": [
+    {
+      "$id": "normal_type",
+      "Effectiveness": 
+        {
+          "Fighting": 2.0,
+          "Ghost": 0.0
+        },
+      "Name": "Normal"
+    },
+    {
+      "$id": "fighting_type",
+      "Effectiveness": 
+        {
+          "Flying": 2.0,
+          "Rock": 0.5,
+          "Bug": 0.5,
+          "Psychic": 2.0,
+          "Dark": 0.5,
+          "Fairy": 2.0
+        },
+      "Name": "Fighting"
+    },
+    {
+      "$id": "flying_type",
+      "Effectiveness": null,
+      "Name": "Flying"
+    },
+    {
+      "$id": "poison_type",
+      "Effectiveness": null,
+      "Name": "Poison"
+    },
+    {
+      "$id": "ground_type",
+      "Effectiveness": null,
+      "Name": "Ground"
+    },
+    {
+      "$id": "rock_type",
+      "Effectiveness": null,
+      "Name": "Rock"
+    },
+    {
+      "$id": "bug_type",
+      "Effectiveness": null,
+      "Name": "Bug"
+    },
+    {
+      "$id": "ghost_type",
+      "Effectiveness": null,
+      "Name": "Ghost"
+    },
+    {
+      "$id": "steel_type",
+      "Effectiveness": null,
+      "Name": "Steel"
+    },
+    {
+      "$id": "fire_type",
+      "Effectiveness": null,
+      "Name": "Fire"
+    },
+    {
+      "$id": "water_type",
+      "Effectiveness": null,
+      "Name": "Water"
+    },
+    {
+      "$id": "grass_type",
+      "Effectiveness": null,
+      "Name": "Grass"
+    },
+    {
+      "$id": "electric_type",
+      "Effectiveness": null,
+      "Name": "Electric"
+    },
+    {
+      "$id": "psychic_type",
+      "Effectiveness": null,
+      "Name": "Psychic"
+    },
+    {
+      "$id": "ice_type",
+      "Effectiveness": null,
+      "Name": "Ice"
+    },
+    {
+      "$id": "dragon_type",
+      "Effectiveness": null,
+      "Name": "Dragon"
+    },
+    {
+      "$id": "dark_type",
+      "Effectiveness": null,
+      "Name": "Dark"
+    },
+    {
+      "$id": "fairy_type",
+      "Effectiveness": null,
+      "Name": "Fairy"
+    },
+    {
+      "$id": "unknown_type",
+      "Effectiveness": null,
+      "Name": "???"
+    }
+  ],
+  "Moves": [
+    {
+      "$id": "3",
+      "Name": null,
+      "Desciption": null,
+      "Type": {
+        "$ref": "steel_type"
+      },
+      "Effects": [
+        {
+          "$id": "5",
+          "$type": "PokeSharp.Pokemon.Effects.DoDamage, PokeSharp",
+          "Power": 0,
+          "Accuracy": 0,
+          "OffensiveStat": 0,
+          "DefendsStat": 0
+        }
+      ]
+    }
+  ],
+  "Natures": [
+    {
+      "$id": "6",
+      "Name": null,
+      "Modifiers": [ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ]
+    }
+  ],
+  "Abilities": [
+    {
+      "$id": "7",
+      "Name": null,
+      "Description": null,
+      "Effects": {
+        "$id": "8",
+        "BeforeMove": [],
+        "AfterMove": [],
+        "BeforeHit": [],
+        "AfterHit": [],
+        "StartTurn": [],
+        "EndTurn": []
+      }
+    }
+  ],
+  "Pokemons": [
+    {
+      "$id": "2",
+      "Name": "Jirachi",
+      "Title": "Wish Pokémon",
+      "Description": "Jirachi will awaken from its sleep of a thousand years if you sing to it in a voice of purity. It is said to make true any wish that people desire.",
+      "BaseStats": [ 100, 100, 100, 100, 100, 100 ],
+      "Types": [
+        {
+          "$ref": "steel_type"
+        },
+        {
+          "$ref": "psychic_type"
+        }
+      ],
+      "PotentialAbilities": [],
+      "Evolutions": [],
+      "LearnableMoves": []
+    }
+  ]
+}

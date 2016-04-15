@@ -16,12 +16,17 @@ namespace PokeSharp.Pokemon
         /// <summary>
         /// The requirements for the evolution to happen.
         /// </summary>
-        public List<IRequirement> Requirements { get; set; }
+        public List<IRequirement> Requirements
+        {
+            get { return _requirements; }
+            set { _requirements = value; }
+        }
+        private List<IRequirement> _requirements = new List<IRequirement>();
+
 
         public Evolution(BasePokemon pokemon)
         {
             Pokemon = pokemon;
-            Requirements = new List<IRequirement>();
         }
 
         /// <summary>

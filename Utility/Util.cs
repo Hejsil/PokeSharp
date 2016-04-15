@@ -12,6 +12,39 @@ namespace Utility
     public static class Util
     {
         /// <summary>
+        /// Cap a number so that it is alway equal or below a max
+        /// </summary>
+        /// <param name="num"></param>
+        /// <param name="max"></param>
+        /// <returns></returns>
+        public static int CapAbove(int num, int max)
+        {
+            return (num > max) ? max : num;
+        }
+
+        /// <summary>
+        /// Cap a number so that it is alway equal or above a min
+        /// </summary>
+        /// <param name="num"></param>
+        /// <param name="min"></param>
+        /// <returns></returns>
+        public static int CapBelow(int num, int min)
+        {
+            return (num < min) ? min : num;
+        }
+
+        /// <summary>
+        /// Cap a number so that it is alway equal to min or max, or between them
+        /// </summary>
+        /// <param name="num"></param>
+        /// <param name="min"></param>
+        /// <returns></returns>
+        public static int Cap(int num, int min, int max)
+        {
+            return (num < min) ? min : ((num > max) ? max : num);
+        }
+
+        /// <summary>
         /// Find greatest common divider of many numbers.
         /// </summary>
         /// <param name="numbers"></param>

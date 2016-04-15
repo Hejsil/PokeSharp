@@ -10,12 +10,17 @@ namespace PokeSharp.Pokemon.Effects
     /// <summary>
     /// The effect that deals damage to targets, using power and stats to calculate the damage.
     /// </summary>
-    public class DefaultDamage : IEffect
+    public class DoDamage : IEffect
     {
         /// <summary>
         /// The power of the effect.
         /// </summary>
         public int Power { get; set; }
+
+        /// <summary>
+        /// The accuracy of the move. If it's over 100, it cant miss.
+        /// </summary>
+        public int Accuracy { get; set; }
 
         /// <summary>
         /// The stat used by the user to determin damage.

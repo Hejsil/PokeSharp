@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PokeSharp.Utility;
+using System;
 
 namespace PokeSharp.Pokemon
 {
@@ -25,23 +26,59 @@ namespace PokeSharp.Pokemon
         /// <summary>
         /// The evs the pokemon has optained.
         /// </summary>
-        public int[] EVs { get; set; }
+        public int[] EVs
+        {
+            get { return _evs; }
+            set
+            {
+                Util.EnsureSize(value, 6);
+                _evs = value;
+            }
+        }
+        private int[] _evs = new int[6];
 
         /// <summary>
         /// The ivs the pokemon was born with.
         /// </summary>
-        public int[] IVs { get; set; }
+        public int[] IVs
+        {
+            get { return _ivs; }
+            set
+            {
+                Util.EnsureSize(value, 6);
+                _ivs = value;
+            }
+        }
+        private int[] _ivs = new int[6];
 
         /// <summary>
         /// The bonuses applied to the pokemon during battle.
         /// This includes loosing health.
         /// </summary>
-        public int[] Bonuses { get; set; }
+        public int[] Bonuses
+        {
+            get { return _bonuses; }
+            set
+            {
+                Util.EnsureSize(value, 6);
+                _bonuses = value;
+            }
+        }
+        private int[] _bonuses = new int[6];
 
         /// <summary>
         /// The moves the pokemon have.
         /// </summary>
-        public Move[] Moves { get; set; }
+        public Move[] Moves
+        {
+            get { return _moves; }
+            set
+            {
+                Util.EnsureSize(value, 4);
+                _moves = value;
+            }
+        }
+        private Move[] _moves = new Move[4];
 
         /// <summary>
         /// The ability the pokemon have.
@@ -61,10 +98,6 @@ namespace PokeSharp.Pokemon
         public Pokemon(BasePokemon @base)
         {
             Base = @base;
-            EVs = new int[6];
-            IVs = new int[6];
-            Bonuses = new int[6];
-            Moves = new Move[4];
         }
 
         /// <summary>

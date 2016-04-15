@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PokeSharp.Utility;
+using System;
 using System.Collections.Generic;
 
 namespace PokeSharp.Pokemon
@@ -25,36 +26,64 @@ namespace PokeSharp.Pokemon
 
         /// <summary>
         /// The base stats of the pokemon.
-        /// </summary>
-        public int[] BaseStats { get; set; }
+        /// </summary>        
+        public int[] BaseStats
+        {
+            get { return _basestates; }
+            set
+            {
+                Util.EnsureSize(value, 6);
+                _basestates = value;
+            }
+        }
+        private int[] _basestates = new int[6];
+
 
         /// <summary>
         /// The pokemons types.
         /// </summary>
-        public PokemonType[] Types { get; set; }
+        public PokemonType[] Types
+        {
+            get { return _types; }
+            set
+            {
+                Util.EnsureSize(value, 2);
+                _types = value;
+            }
+        }
+        private PokemonType[] _types = new PokemonType[2];
+
 
         /// <summary>
         /// The abilities the pokemon can have.
         /// </summary>
-        public Ability[] PotentialAbilities { get; set; }
+        public List<Ability> PotentialAbilities
+        {
+            get { return _potentialabilities; }
+            set { _potentialabilities = value; }
+        }
+        private List<Ability> _potentialabilities = new List<Ability>();
+
 
         /// <summary>
         /// The pokemons evolutions.
         /// </summary>
-        public List<Evolution> Evolutions { get; set; }
+        public List<Evolution> Evolutions
+        {
+            get { return _evolutions; }
+            set { _evolutions = value; }
+        }
+        private List<Evolution> _evolutions = new List<Evolution>();
+
 
         /// <summary>
         /// The moves the pokemon can learn.
         /// </summary>
-        public List<LearnMove> LearnableMoves { get; set; }
-
-        public BasePokemon()
+        public List<LearnMove> LearnableMoves
         {
-            BaseStats = new int[6];
-            Types = new PokemonType[2];
-            PotentialAbilities = new Ability[3];
-            Evolutions = new List<Evolution>();
-            LearnableMoves = new List<LearnMove>();
-    }
+            get { return _learnablemoves; }
+            set { _learnablemoves = value; }
+        }
+        private List<LearnMove> _learnablemoves = new List<LearnMove>();
     }
 }
