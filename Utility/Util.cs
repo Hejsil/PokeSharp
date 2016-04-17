@@ -11,6 +11,40 @@ namespace Utility
     /// </summary>
     public static class Util
     {
+                private static readonly Random _rand = new Random();
+
+        public static void EnsureSize<T>(IEnumerable<T> collection, int size)
+        {
+            if (collection.Count() > size || collection.Count() < size)
+                throw new IndexOutOfRangeException("Collection didn't uphold the size ensurence of " + size + " elements.");
+        }
+
+        public static double RandomDouble()
+        {
+            return _rand.NextDouble();
+        }
+
+        public static int RandomInt(int min = int.MinValue, int max = int.MaxValue - 1)
+        {
+            return _rand.Next(min, max + 1);
+        }
+
+        public static int RandomChoice(params int[] chances)
+        {
+            int number = RandomInt(0, chances.Sum() - 1);
+            for (int i = 0; i < chances.Length; i++)
+            {
+                if (number < chances[i])
+                {
+                    return i;
+                }
+
+                number -= chances[i];
+            }
+
+            return -1;
+        }
+
         /// <summary>
         /// Cap a number so that it is alway equal or below a max
         /// </summary>
@@ -82,42 +116,6 @@ namespace Utility
             }
 
             return a;
-        }
-
-        /// <summary>
-        /// Converts a decimal number into a faction.
-        /// </summary>
-        /// <param name="num"></param>
-        /// <returns></returns>
-        public static Fraction DecimalToFraction(double num)
-        {
-            bool isNeg = Util.IsNegative(num);
-            int lowerN = 0, lowerD = 1,
-                upperN = 1, upperD = 1,
-                middleN, middleD;
-
-            num = Math.Abs(num);
-
-            for (;;)
-            {
-                middleN = lowerN + upperN;
-                middleD = lowerD + upperD;
-
-                if (middleD * num < middleN)
-                {
-                    upperN = middleN;
-                    upperD = middleD;
-                }
-                else if (middleN < num * middleD)
-                {
-                    lowerN = middleN;
-                    lowerD = middleD;
-                }
-                else
-                {
-                    return new Fraction((isNeg) ? -middleN : middleN, middleD);
-                }
-            }
         }
 
         /// <summary>

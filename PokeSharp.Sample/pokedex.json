@@ -5,8 +5,8 @@
       "$id": "normal_type",
       "Effectiveness": 
         {
-          "Fighting": 2.0,
-          "Ghost": 0.0
+          "Fighting"  : 2.0,
+          "Ghost"     : 0.0
         },
       "Name": "Normal"
     },
@@ -14,28 +14,53 @@
       "$id": "fighting_type",
       "Effectiveness": 
         {
-          "Flying": 2.0,
-          "Rock": 0.5,
-          "Bug": 0.5,
-          "Psychic": 2.0,
-          "Dark": 0.5,
-          "Fairy": 2.0
+          "Flying"    : 2.0,
+          "Psychic"   : 2.0,
+          "Fairy"     : 2.0,
+          "Rock"      : 0.5,
+          "Bug"       : 0.5,
+          "Dark"      : 0.5
         },
       "Name": "Fighting"
     },
     {
       "$id": "flying_type",
-      "Effectiveness": null,
+      "Effectiveness":
+        {
+          "Electric"  : 2.0,
+          "Ice"       : 2.0,
+          "Rock"      : 2.0,
+          "Bug"       : 0.5,
+          "Fighting"  : 0.5,
+          "Grass"     : 0.5,
+          "Ground"    : 0.0
+        },
       "Name": "Flying"
     },
     {
       "$id": "poison_type",
-      "Effectiveness": null,
+      "Effectiveness": 
+        {
+          "Ground"    : 2.0,
+          "Psychic"   : 2.0,
+          "Fighting"  : 0.5,
+          "Poison"    : 0.5,
+          "Bug"       : 0.5,
+          "Grass"     : 0.5,
+          "Fairy"     : 0.5
+        },
       "Name": "Poison"
     },
     {
       "$id": "ground_type",
-      "Effectiveness": null,
+      "Effectiveness": 
+        {
+          "Grass"     : 2.0,
+          "Ice"       : 2.0,
+          "Water"     : 2.0,
+          "Poison"    : 0.5,
+          "Rock"      : 0.5
+        },
       "Name": "Ground"
     },
     {
@@ -112,17 +137,17 @@
   "Moves": [
     {
       "$id": "3",
-      "Name": null,
-      "Desciption": null,
+      "Name": "Swift",
+      "Desciption": "Star-shaped rays are shot at the opposing Pokémon. This attack never misses.",
+      "Accuracy": 101,
       "Type": {
-        "$ref": "steel_type"
+        "$ref": "normal_type"
       },
       "Effects": [
         {
           "$id": "5",
           "$type": "PokeSharp.Pokemon.Effects.DoDamage, PokeSharp",
-          "Power": 0,
-          "Accuracy": 0,
+          "Power": 60,
           "OffensiveStat": 0,
           "DefendsStat": 0
         }
@@ -167,9 +192,9 @@
           "$ref": "psychic_type"
         }
       ],
-      "PotentialAbilities": [],
+      "PotentialAbilities": [ { "$ref" :  "7" } ],
       "Evolutions": [],
-      "LearnableMoves": []
+      "LearnableMoves": [ { "$res" :  "3" } ]
     }
   ]
 }

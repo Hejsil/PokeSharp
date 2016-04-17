@@ -19,24 +19,12 @@
             {
                 return (double)Numerator / Denominator;
             }
-            set
-            {
-                var res = Util.DecimalToFraction(value);
-                Numerator = res.Numerator;
-                Denominator = res.Denominator;
-            }
         }
 
         public Fraction(int num = 1, int denum = 1)
         {
             Numerator = num;
             Denominator = denum;
-        }
-
-        public Fraction(double value)
-            : this()
-        {
-            Value = value;
         }
 
         /// <summary>
@@ -71,11 +59,6 @@
         public static implicit operator Fraction(int a)
         {
             return new Fraction(a, 1);
-        }
-
-        public static implicit operator Fraction(double a)
-        {
-            return new Fraction(a);
         }
 
         public static explicit operator int(Fraction a)
@@ -116,16 +99,6 @@
         {
             return b + a;
         }
-
-        public static Fraction operator +(Fraction a, double b)
-        {
-            return a + new Fraction(b);
-        }
-
-        public static Fraction operator +(double a, Fraction b)
-        {
-            return b + a;
-        }
         #endregion
 
         #region Subtraction
@@ -147,16 +120,6 @@
         {
             return -b + a;
         }
-
-        public static Fraction operator -(Fraction a, double b)
-        {
-            return a - new Fraction(b);
-        }
-
-        public static Fraction operator -(double a, Fraction b)
-        {
-            return -b + a;
-        }
         #endregion
 
         #region Multiplication
@@ -174,16 +137,6 @@
         }
 
         public static Fraction operator *(int a, Fraction b)
-        {
-            return b * a;
-        }
-
-        public static Fraction operator *(Fraction a, double b)
-        {
-            return a * new Fraction(b);
-        }
-
-        public static Fraction operator *(double a, Fraction b)
         {
             return b * a;
         }
@@ -209,16 +162,6 @@
             b.Denominator = b.Numerator;
             b.Numerator = temp;
             return b;
-        }
-
-        public static Fraction operator /(Fraction a, double b)
-        {
-            return a / new Fraction(b);
-        }
-
-        public static Fraction operator /(double a, Fraction b)
-        {
-            return new Fraction(a) / b;
         }
         #endregion
         #endregion

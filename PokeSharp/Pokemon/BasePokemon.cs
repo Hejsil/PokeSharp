@@ -1,6 +1,6 @@
-﻿using PokeSharp.Utility;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using Utility;
 
 namespace PokeSharp.Pokemon
 {

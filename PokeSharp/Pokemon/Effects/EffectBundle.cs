@@ -71,5 +71,15 @@ namespace PokeSharp.Pokemon.Effects
             set { _endturn = value; }
         }
         private List<IEffect> _endturn = new List<IEffect>();
+
+        /// <summary>
+        /// The effects that take place when the pokemon is sendt in to battle.
+        /// </summary>
+        public List<IEffect> OnSendIn
+        {
+            get { return _onsendin; }
+            set { _onsendin = value; }
+        }
+        private List<IEffect> _onsendin;
     }
 }

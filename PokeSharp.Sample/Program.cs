@@ -1,7 +1,9 @@
 ﻿using Newtonsoft.Json;
 using PokeSharp.Pokemon;
 using PokeSharp.Pokemon.Effects;
+using System;
 using System.IO;
+using Utility;
 
 namespace PokeSharp.Sample
 {
@@ -9,6 +11,7 @@ namespace PokeSharp.Sample
     {
         static void Main(string[] args)
         {
+            /*
             var settings = new JsonSerializerSettings()
             {
                 PreserveReferencesHandling = PreserveReferencesHandling.Objects,
@@ -29,7 +32,6 @@ namespace PokeSharp.Sample
             {
                 file.Write(JsonConvert.SerializeObject(pokedex, settings));
             }
-            */
 
             PokeDex pokedex;
 
@@ -37,6 +39,43 @@ namespace PokeSharp.Sample
             {
                 pokedex = JsonConvert.DeserializeObject<PokeDex>(file.ReadToEnd(), settings);
             }
+
+            var pokemon = pokedex.MakePokemonInstance(pokedex.Pokemons[0]);
+            */
+
+            var dex = PokeDex.GenerateRandom();
+            
+            Console.WriteLine("---Types---");
+            Console.Write("{0, 6}", "VD A>");
+            foreach (var type in dex.Types)
+            {
+                Console.Write("|{0, 6}", type.Name);
+            }
+            Console.WriteLine();
+
+            foreach (var type in dex.Types)
+            {
+                Console.Write("{0, 6}", type.Name);
+
+                foreach (var effect in type.Effectiveness)
+                {
+                    Console.Write("|{0, 6:N1}", effect.Value);
+                }
+
+                Console.WriteLine();
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("---Pokemons---");
+            foreach (var pokemon in dex.Pokemons)
+            {
+                Console.WriteLine("<{0}>", pokemon.Name);
+                Console.WriteLine("\tTitle: {0}", pokemon.Title);
+                Console.WriteLine("\tDescription: {0}", pokemon.Description);
+                Console.WriteLine("\tStats: {0}", pokemon.BaseStats);
+            }
+
+            Console.ReadKey();
         }
     }
 }

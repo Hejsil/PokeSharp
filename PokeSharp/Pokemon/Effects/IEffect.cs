@@ -1,8 +1,11 @@
-﻿namespace PokeSharp.Pokemon.Effects
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace PokeSharp.Pokemon.Effects
 {
-    /// <summary>
-    /// An interface for an effect that something can apply to a pokemon.
-    /// </summary>
     public interface IEffect
     {
         /// <summary>

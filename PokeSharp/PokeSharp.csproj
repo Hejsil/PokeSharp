@@ -48,6 +48,8 @@
     <Compile Include="Pokemon\Effects\DoDamage.cs" />
     <Compile Include="Pokemon\Effects\EffectBundle.cs" />
     <Compile Include="Pokemon\Effects\IEffect.cs" />
+    <Compile Include="Pokemon\Effects\IMoveEffect.cs" />
+    <Compile Include="Pokemon\Enums\Stats.cs" />
     <Compile Include="Pokemon\Item.cs" />
     <Compile Include="Pokemon\PokeDex.cs" />
     <Compile Include="Pokemon\Requirements\LevelRepuirement.cs" />
@@ -61,7 +63,6 @@
     <Compile Include="Pokemon\Pokemon.cs" />
     <Compile Include="Pokemon\PokemonType.cs" />
     <Compile Include="Pokemon\Requirements\IRequirement.cs" />
-    <Compile Include="Utility\Util.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -72,6 +73,7 @@
       <Name>Utility</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

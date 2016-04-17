@@ -1,4 +1,4 @@
-﻿using PokeSharp.Utility;
+﻿using Utility;
 
 namespace PokeSharp.Pokemon
 {
@@ -24,6 +24,6 @@ namespace PokeSharp.Pokemon
                 _modifiers = value;
             }
         }
-        private double[] _modifiers = new double[6];
+        private double[] _modifiers = new double[6] { 1.0, 1.0, 1.0, 1.0, 1.0, 1.0 };
     }
 }

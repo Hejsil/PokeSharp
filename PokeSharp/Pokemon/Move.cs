@@ -19,6 +19,11 @@ namespace PokeSharp.Pokemon
         public string Desciption { get; set; }
 
         /// <summary>
+        /// The accuracy of the move. If it's over 100, it cant miss.
+        /// </summary>
+        public int Accuracy { get; set; }
+
+        /// <summary>
         /// The type of the move.
         /// </summary>
         public PokemonType Type { get; set; }
@@ -26,12 +31,12 @@ namespace PokeSharp.Pokemon
         /// <summary>
         /// The effects the move have.
         /// </summary>
-        public List<IEffect> Effects
+        public List<IMoveEffect> Effects
         {
             get { return _effects; }
             set { _effects = value; }
         }
-        private List<IEffect> _effects = new List<IEffect>();
+        private List<IMoveEffect> _effects = new List<IMoveEffect>();
 
 
         public Move(PokemonType type)

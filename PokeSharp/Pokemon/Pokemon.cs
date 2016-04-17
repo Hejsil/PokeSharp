@@ -1,5 +1,6 @@
-﻿using PokeSharp.Utility;
-using System;
+﻿using System;
+using System.Linq;
+using Utility;
 
 namespace PokeSharp.Pokemon
 {
@@ -8,6 +9,10 @@ namespace PokeSharp.Pokemon
     /// </summary>
     public class Pokemon
     {
+        public static readonly int MaxTotalEv = 510;
+        public static readonly int MaxEv = 252;
+        public static readonly int MaxIv = 31;
+
         /// <summary>
         /// The pokemons nickname.
         /// </summary>
@@ -60,11 +65,12 @@ namespace PokeSharp.Pokemon
             get { return _bonuses; }
             set
             {
-                Util.EnsureSize(value, 6);
+                Util.EnsureSize(value, 10);
                 _bonuses = value;
             }
         }
-        private int[] _bonuses = new int[6];
+        private int[] _bonuses = new int[10];
+        // Hp, Att, Def, SpAtt, SpDef, Spe, Eva, Acc, Crit, DmgMul
 
         /// <summary>
         /// The moves the pokemon have.
@@ -109,7 +115,7 @@ namespace PokeSharp.Pokemon
         {
             int[] res = new int[6];
 
-            res[0] = ((2 * Base.BaseStats[0] + IVs[0] + EVs[0]/4) * Level) / 100 + Level + 10;
+            res[0] = ((2 * Base.BaseStats[0] + IVs[0] + EVs[0] / 4) * Level) / 100 + Level + 10;
 
             for (int i = 1; i < 6; i++)
             {
