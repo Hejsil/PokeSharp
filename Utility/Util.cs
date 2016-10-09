@@ -11,7 +11,7 @@ namespace Utility
     /// </summary>
     public static class Util
     {
-                private static readonly Random _rand = new Random();
+        private static readonly Random _rand = new Random();
 
         public static void EnsureSize<T>(IEnumerable<T> collection, int size)
         {
@@ -138,7 +138,7 @@ namespace Utility
         /// <returns></returns>
         public static bool IsNegative(long num)
         {
-            return (num.CompareTo(0) == -1) ? true : false;
+            return num.CompareTo(0) == -1;
         }
 
         /// <summary>
@@ -148,7 +148,7 @@ namespace Utility
         /// <returns></returns>
         public static bool IsNegative(int num)
         {
-            return (num.CompareTo(0) == -1) ? true : false;
+            return num.CompareTo(0) == -1;
         }
 
         /// <summary>
@@ -158,7 +158,7 @@ namespace Utility
         /// <returns></returns>
         public static bool IsNegative(sbyte num)
         {
-            return (num.CompareTo(0) == -1) ? true : false;
+            return num.CompareTo(0) == -1;
         }
         
         /// <summary>
@@ -168,7 +168,7 @@ namespace Utility
         /// <returns></returns>
         public static bool IsNegative(decimal num)
         {
-            return (num.CompareTo(0) == -1) ? true : false;
+            return num.CompareTo(0) == -1;
         }
         
         /// <summary>
@@ -178,7 +178,7 @@ namespace Utility
         /// <returns></returns>
         public static bool IsNegative(double num)
         {
-            return (num.CompareTo(0) == -1) ? true : false;
+            return num.CompareTo(0) == -1;
         }
         
         /// <summary>
@@ -188,7 +188,7 @@ namespace Utility
         /// <returns></returns>
         public static bool IsNegative(float num)
         {
-            return (num.CompareTo(0) == -1) ? true : false;
+            return num.CompareTo(0) == -1;
         }
     }
 }
