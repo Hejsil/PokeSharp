@@ -26,7 +26,7 @@ namespace PokeSharp.Pokemon.Requirements
                 case Compare.Equal:
                     return pokemon.Level == Level;
                 default:
-                    throw new NotImplementedException();
+                    throw new ArgumentOutOfRangeException();
             }
         }
 

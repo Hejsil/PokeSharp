@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq;
-using Utility;
+using PokeSharp.Pokemon.Enums;
 
 namespace PokeSharp.Pokemon
 {
@@ -9,19 +9,15 @@ namespace PokeSharp.Pokemon
     /// </summary>
     public class Pokemon
     {
-        public static readonly int MaxTotalEv = 510;
-        public static readonly int MaxEv = 252;
-        public static readonly int MaxIv = 31;
+        public const int MaxTotalEv = 510;
+        public const int MaxEv = 252;
+        public const int MaxIv = 31;
+        public const int StatCount = 6;
 
         /// <summary>
         /// The pokemons nickname.
         /// </summary>
         public string NickName { get; set; }
-
-        /// <summary>
-        /// The base pokemon.
-        /// </summary>
-        public BasePokemon Base { get; set; }
 
         /// <summary>
         /// The level of the pokemon.
@@ -31,98 +27,55 @@ namespace PokeSharp.Pokemon
         /// <summary>
         /// The evs the pokemon has optained.
         /// </summary>
-        public int[] EVs
-        {
-            get { return _evs; }
-            set
-            {
-                Util.EnsureSize(value, 6);
-                _evs = value;
-            }
-        }
-        private int[] _evs = new int[6];
+        public int[] EVs { get; } = new int[StatCount];
 
         /// <summary>
         /// The ivs the pokemon was born with.
         /// </summary>
-        public int[] IVs
-        {
-            get { return _ivs; }
-            set
-            {
-                Util.EnsureSize(value, 6);
-                _ivs = value;
-            }
-        }
-        private int[] _ivs = new int[6];
-
-        /// <summary>
-        /// The bonuses applied to the pokemon during battle.
-        /// This includes loosing health.
-        /// </summary>
-        public int[] Bonuses
-        {
-            get { return _bonuses; }
-            set
-            {
-                Util.EnsureSize(value, 10);
-                _bonuses = value;
-            }
-        }
-        private int[] _bonuses = new int[10];
-        // Hp, Att, Def, SpAtt, SpDef, Spe, Eva, Acc, Crit, DmgMul
-
-        /// <summary>
-        /// The moves the pokemon have.
-        /// </summary>
-        public Move[] Moves
-        {
-            get { return _moves; }
-            set
-            {
-                Util.EnsureSize(value, 4);
-                _moves = value;
-            }
-        }
-        private Move[] _moves = new Move[4];
-
-        /// <summary>
-        /// The ability the pokemon have.
-        /// </summary>
-        public Ability Ability { get; set; }
-
-        /// <summary>
-        /// The item the pokemon is holding.
-        /// </summary>
-        public Item HoldItem { get; set; }
-
-        /// <summary>
-        /// The nature the pokemon was born with.
-        /// </summary>
-        public Nature Nature { get; set; }
-
-        public Pokemon(BasePokemon @base)
-        {
-            Base = @base;
-        }
-
+        public int[] IVs { get; } = new int[StatCount];
+        
         /// <summary>
         /// Calculates stats using the formulars from bulbapedia (In Generation III onward):
         /// http://bulbapedia.bulbagarden.net/wiki/Statistic
         /// </summary>
         /// <returns></returns>
-        public int[] CalculateStats()
+        public int[] Stats
         {
-            int[] res = new int[6];
-
-            res[0] = ((2 * Base.BaseStats[0] + IVs[0] + EVs[0] / 4) * Level) / 100 + Level + 10;
-
-            for (int i = 1; i < 6; i++)
+            get
             {
-                res[i] = (int)((((2 * Base.BaseStats[i] + IVs[i] + EVs[i] / 4) * Level) / 100 + 5) * Nature.Modifiers[i]);
+                throw new NotImplementedException();
             }
+        }
 
-            return res;
+        /// <summary>
+        /// The bonuses applied to the pokemon during battle.
+        /// This includes loosing health.
+        /// </summary>
+        public int[] Bonuses { get; } = new int[Enum.GetValues(typeof(Stats)).Length];
+        
+        /// <summary>
+        /// The PokemonId pokemon.
+        /// </summary>
+        public int PokemonId { get; set; }
+
+        /// <summary>
+        /// The moves the pokemon have.
+        /// </summary>
+        public int[] MoveIds { get; } = new int[4];
+
+        /// <summary>
+        /// The @Ability the pokemon have.
+        /// </summary>
+        public int AbilityId { get; set; }
+
+        /// <summary>
+        /// The nature the pokemon was born with.
+        /// </summary>
+        public int NatureId { get; set; }
+
+        public Pokemon(int pokemonId)
+        {
+            PokemonId = pokemonId;
         }
     }
 }

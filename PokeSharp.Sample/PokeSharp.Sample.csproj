@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PokeSharp.Sample</RootNamespace>
     <AssemblyName>PokeSharp.Sample</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -61,10 +62,6 @@
     <ProjectReference Include="..\PokeSharp\PokeSharp.csproj">
       <Project>{47932170-a76c-465c-88c0-269b4c62ab1e}</Project>
       <Name>PokeSharp</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Utility\Utility.csproj">
-      <Project>{dec822f1-49fc-43c0-a400-82f98d7ff6e7}</Project>
-      <Name>Utility</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

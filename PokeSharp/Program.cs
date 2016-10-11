@@ -1,8 +1,4 @@
-﻿using System;
-using System.Drawing;
-using Utility;
-
-namespace PokeSharp
+﻿namespace PokeSharp
 {
     class Program
     {

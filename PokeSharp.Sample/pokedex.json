@@ -146,7 +146,7 @@
       "Effects": [
         {
           "$id": "5",
-          "$type": "PokeSharp.Pokemon.Effects.DoDamage, PokeSharp",
+          "$type": "PokeSharp.PokemonId.Effects.DoDamage, PokeSharp",
           "Power": 60,
           "OffensiveStat": 0,
           "DefendsStat": 0

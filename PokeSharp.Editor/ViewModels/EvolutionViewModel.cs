@@ -11,7 +11,7 @@ namespace PokeSharp.Editor.ViewModels
 {
     public class EvolutionViewModel : PokeSharpViewModel
     {
-        Evolution _default = new Evolution(new BasePokemon());
+        Evolution _default = new Evolution(0);
 
         public Evolution Evolution
         {

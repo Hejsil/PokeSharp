@@ -33,7 +33,7 @@ namespace PokeSharp.Editor.ViewModels
         }
         SyncedObservableList<Evolution> _evolutions;
 
-        public SyncedObservableList<LearnMove> Moves
+        public SyncedObservableList<LearnableMove> Moves
         {
             get { return _moves; }
             set
@@ -42,7 +42,7 @@ namespace PokeSharp.Editor.ViewModels
                 OnPropertyChanged(nameof(Moves));
             }
         }
-        SyncedObservableList<LearnMove> _moves;
+        SyncedObservableList<LearnableMove> _moves;
 
         public EvolutionViewModel EvolutionViewModel
         {
@@ -68,7 +68,7 @@ namespace PokeSharp.Editor.ViewModels
             EditEvolution = new DelegateCommand(EditEvolutionExecute, EditEvolutionCanExecute);
             SelectionChanged = new DelegateCommand(SelectionChangedExecute, o => true);
             Evolutions = new SyncedObservableList<Evolution>(() => Pokemon.Evolutions);
-            Moves = new SyncedObservableList<LearnMove>(() => Pokemon.LearnableMoves);
+            Moves = new SyncedObservableList<LearnableMove>(() => Pokemon.LearnableMoves);
             EvolutionViewModel = new EvolutionViewModel(PokeDex);
         }
 
@@ -107,7 +107,7 @@ namespace PokeSharp.Editor.ViewModels
 
         private void AddEvolutionExecute(object obj)
         {
-            Evolutions.Add(new Evolution(PokeDex.Pokemons.First()));
+            Evolutions.Add(new Evolution(0));
         }
     }
 }

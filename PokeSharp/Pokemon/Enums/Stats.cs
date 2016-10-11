@@ -8,6 +8,7 @@ namespace PokeSharp.Pokemon.Enums
 {
     public enum Stats
     {
+        Health,
         Attack,
         Defense,
         SpecialAttack,

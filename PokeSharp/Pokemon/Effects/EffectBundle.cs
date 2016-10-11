@@ -30,7 +30,7 @@ namespace PokeSharp.Pokemon.Effects
 
 
         /// <summary>
-        /// The effects that take place just before the pokemon having the ability is being hit. 
+        /// The effects that take place just before the pokemon having the @Ability is being hit. 
         /// </summary>
         public List<IEffect> BeforeHit
         {
@@ -41,7 +41,7 @@ namespace PokeSharp.Pokemon.Effects
 
 
         /// <summary>
-        /// The effects that take place just after the pokemon having the ability has been hit.
+        /// The effects that take place just after the pokemon having the @Ability has been hit.
         /// </summary>
         public List<IEffect> AfterHit
         {

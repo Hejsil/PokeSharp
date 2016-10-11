@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PokeSharp</RootNamespace>
     <AssemblyName>PokeSharp</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -44,36 +45,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Pokemon\Ability.cs" />
     <Compile Include="Pokemon\Effects\DoDamage.cs" />
     <Compile Include="Pokemon\Effects\EffectBundle.cs" />
     <Compile Include="Pokemon\Effects\IEffect.cs" />
     <Compile Include="Pokemon\Effects\IMoveEffect.cs" />
     <Compile Include="Pokemon\Enums\Stats.cs" />
-    <Compile Include="Pokemon\Item.cs" />
     <Compile Include="Pokemon\PokeDex.cs" />
     <Compile Include="Pokemon\Requirements\LevelRepuirement.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Pokemon\BasePokemon.cs" />
     <Compile Include="Pokemon\Evolution.cs" />
-    <Compile Include="Pokemon\LearnMove.cs" />
+    <Compile Include="Pokemon\LearnableMove.cs" />
     <Compile Include="Pokemon\Move.cs" />
-    <Compile Include="Pokemon\Nature.cs" />
     <Compile Include="Pokemon\Pokemon.cs" />
-    <Compile Include="Pokemon\PokemonType.cs" />
     <Compile Include="Pokemon\Requirements\IRequirement.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Utility\Utility.csproj">
-      <Project>{dec822f1-49fc-43c0-a400-82f98d7ff6e7}</Project>
-      <Name>Utility</Name>
+    <ProjectReference Include="..\HejsilsUtilities\HejsilsUtilities.Collections\HejsilsUtilities.Collections.csproj">
+      <Project>{ce1b3c8c-db94-4cb6-8db8-a865185b8b3d}</Project>
+      <Name>HejsilsUtilities.Collections</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HejsilsUtilities\HejsilsUtilities.Numbers\HejsilsUtilities.Numbers.csproj">
+      <Project>{d77deaac-ce23-4275-aa22-0759735f3dac}</Project>
+      <Name>HejsilsUtilities.Numbers</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

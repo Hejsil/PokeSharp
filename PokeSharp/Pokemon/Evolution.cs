@@ -9,28 +9,22 @@ namespace PokeSharp.Pokemon
     public class Evolution
     {
         /// <summary>
-        /// The pokemon being evolved into.
+        /// The PokemonId being evolved into.
         /// </summary>
-        public BasePokemon Pokemon { get; set; }
+        public int PokemonId { get; set; }
 
         /// <summary>
         /// The requirements for the evolution to happen.
         /// </summary>
-        public List<IRequirement> Requirements
+        public List<IRequirement> Requirements { get; set; } = new List<IRequirement>();
+        
+        public Evolution(int pokemonId)
         {
-            get { return _requirements; }
-            set { _requirements = value; }
-        }
-        private List<IRequirement> _requirements = new List<IRequirement>();
-
-
-        public Evolution(BasePokemon pokemon)
-        {
-            Pokemon = pokemon;
+            PokemonId = pokemonId;
         }
 
         /// <summary>
-        /// Determins whether a pokemon can evolve.
+        /// Determins whether a PokemonId can evolve.
         /// </summary>
         /// <param name="pokemon"></param>
         /// <returns></returns>

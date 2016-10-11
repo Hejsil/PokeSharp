@@ -67,7 +67,7 @@ namespace PokeSharp.Editor.ViewModels
 
         private void AddPokemonExecute(object obj)
         {
-            ObservedPokemons.Add(new BasePokemon() { Name = "Pokemon" + _defaultNameIds++ });
+            ObservedPokemons.Add(new BasePokemon() { Name = "PokemonId" + _defaultNameIds++ });
             PokemonViewModel.AddEvolution.OnCanExecuteChanged();
         }
 
