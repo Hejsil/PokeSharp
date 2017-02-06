@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PokeSharp</RootNamespace>
     <AssemblyName>PokeSharp</AssemblyName>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFrameworkProfile />
@@ -63,16 +63,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\HejsilsUtilities\HejsilsUtilities.Collections\HejsilsUtilities.Collections.csproj">
-      <Project>{ce1b3c8c-db94-4cb6-8db8-a865185b8b3d}</Project>
-      <Name>HejsilsUtilities.Collections</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\HejsilsUtilities\HejsilsUtilities.Numbers\HejsilsUtilities.Numbers.csproj">
-      <Project>{d77deaac-ce23-4275-aa22-0759735f3dac}</Project>
-      <Name>HejsilsUtilities.Numbers</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

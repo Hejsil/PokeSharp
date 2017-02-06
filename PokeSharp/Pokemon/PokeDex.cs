@@ -2,8 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using HejsilsUtilities.Collections;
-using HejsilsUtilities.Numbers;
 
 namespace PokeSharp.Pokemon
 {
@@ -15,12 +13,12 @@ namespace PokeSharp.Pokemon
         /// <summary>
         /// All types in the pokedex.
         /// </summary>
-        public ExpandableGrid<double> TypeTable { get; set; } = new ExpandableGrid<double>();
+        public double[,] TypeTable { get; set; }
 
         /// <summary>
         /// All natures in the pokedex.
         /// </summary>
-        public ExpandableGrid<double> NatureTable { get; set; } = new ExpandableGrid<double>();
+        public double[,] NatureTable { get; set; }
 
         /// <summary>
         /// All moves in the pokedex.
